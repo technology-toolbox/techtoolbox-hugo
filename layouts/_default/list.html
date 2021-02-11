@@ -8,7 +8,7 @@
         {{ range .Paginator.Pages.ByPublishDate.Reverse }}
         <article>
             <h2><a href="{{ .Permalink }}">{{ .Title }}</a></h2>
-            <p>{{ .Summary  }}</p>
+            <p>{{ with .Description }}{{ . }}{{ else }}{{ with .Summary }}{{ . }}{{ end }}{{ end }}</p>
         </article>
         {{ end }}
     </section>
