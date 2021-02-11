@@ -4,5 +4,14 @@
     <div id="content">
         {{ .Content }}
     </div>
+    <section>
+        {{ range .Paginator.Pages.ByPublishDate.Reverse }}
+        <article>
+            <h2><a href="{{ .Permalink }}">{{ .Title }}</a></h2>
+            <p>{{ .Summary  }}</p>
+        </article>
+        {{ end }}
+    </section>
+    {{- template "_internal/pagination.html" . -}}
 </main>
 {{ end }}
