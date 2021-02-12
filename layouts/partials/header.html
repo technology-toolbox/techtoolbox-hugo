@@ -31,6 +31,12 @@
   </nav>
 
   {{ if not .IsHome }}
+    {{ if eq .Section "blog" }}
+      <h1>{{ .CurrentSection.Title }}</h1>
+    {{ else }}
+      <h1>{{ .Title }}</h1>
+    {{ end }}
+
     {{- partial "breadcrumb.html" . -}}
   {{ end }}
 </header>
