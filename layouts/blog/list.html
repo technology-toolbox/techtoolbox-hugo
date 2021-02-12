@@ -1,0 +1,25 @@
+{{ define "main" }}
+<section>
+  <div class="row">
+    <main class="col-lg-8">
+      <div id="content">
+        {{ .Content }}
+      </div>
+      <section>
+        {{ range .Paginator.Pages.ByPublishDate.Reverse }}
+        <article>
+          <h2><a href="{{ .RelPermalink }}">{{ .Title }}</a></h2>
+          <p>{{ with .Description }}{{ . }}{{ else }}{{ with .Summary }}{{ . }}{{ end }}{{ end }}</p>
+        </article>
+        {{ end }}
+      </section>
+      {{- template "_internal/pagination.html" . -}}
+    </main>
+
+    <aside class="col-lg-4">
+      {{- partial "recent-post-list" . -}}
+    </aside><!-- /.col-lg-4 -->
+
+  </div><!-- /.row -->
+</section>
+{{ end }}
