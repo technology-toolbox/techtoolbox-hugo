@@ -1,0 +1,6 @@
+<h3>Tags</h3>
+<nav class="nav">
+  {{ range .Params.tags }}
+    <a class="nav-link" href="{{ relURL (print "/tags/" . | urlize) }}">{{ . }}</a>
+  {{ end }}
+</nav>
