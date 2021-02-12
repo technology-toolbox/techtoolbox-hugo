@@ -1,10 +1,17 @@
 {{ define "main" }}
-<main>
-    <h2>{{ .Title }}</h2>
-    <div>
-        <article id="content">
-            {{ .Content }}
-        </article>
-    </div>
-</main>
+<section>
+  <div class="row">
+    <main class="col-lg-8">
+      <h2>{{ .Title }}</h2>
+      <article id="content">
+        {{ .Content }}
+      </article>
+    </main>
+
+    <aside class="col-lg-4">
+      {{- partial "recent-post-list" . -}}
+    </aside><!-- /.col-lg-4 -->
+
+  </div><!-- /.row -->
+</section>
 {{ end }}
