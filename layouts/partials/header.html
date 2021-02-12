@@ -29,4 +29,8 @@
       </form>
     </div>
   </nav>
+
+  {{ if not .IsHome }}
+    {{- partial "breadcrumb.html" . -}}
+  {{ end }}
 </header>
