@@ -1,19 +1,19 @@
 {{ define "main" }}
 <main>
-    {{ .Content }}
+  {{ .Content }}
 
-    <div class="container marketing">
-        <div class="row">
-          <div class="col-lg-6">
-            {{- partial "recent-posts" . -}}
-          </div><!-- /.col-lg-6 -->
+  <section class="container marketing">
+    <div class="row">
 
-          <div class="col-lg-6">
-            {{- partial "popular-posts" . -}}
-          </div><!-- /.col-lg-6 -->
+      <aside class="col-lg-6">
+        {{- partial "recent-posts" . -}}
+      </aside><!-- /.col-lg-6 -->
 
-        </div><!-- /.row -->
-      </div><!-- /.container -->
+      <aside class="col-lg-6">
+        {{- partial "popular-posts" . -}}
+      </aside><!-- /.col-lg-6 -->
 
+    </div><!-- /.row -->
+  </section><!-- /.container -->
 </main>
 {{ end }}
