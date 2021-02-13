@@ -1,0 +1,13 @@
+{{ define "main" }}
+<main>
+  <section class="row">
+    <article id="content" class="col-lg-8">
+      {{ .Content }}
+    </article>
+    <aside class="col-lg-4 d-none d-sm-none d-md-none d-lg-block">
+        <img alt="{{ .Params.imageDescription }}" class="img-fluid"
+            src="{{ .Params.imageUrl }}">
+    </aside>
+  </section>
+</main>
+{{ end }}
