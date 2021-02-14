@@ -9,7 +9,7 @@
         {{ range .Paginator.Pages.ByPublishDate.Reverse }}
         <article>
           <h2><a href="{{ .RelPermalink }}">{{ .Title }}</a></h2>
-          <p>{{ with .Description }}{{ . }}{{ else }}{{ with .Summary }}{{ . }}{{ end }}{{ end }}</p>
+          <p>{{ with .Params.excerpt }}{{ . }}{{ else }}{{ with .Summary }}{{ . }}{{ end }}{{ end }}</p>
         </article>
         {{ end }}
       </section>

@@ -6,7 +6,7 @@
         <h3 class="mb-1">{{ .Params.title }}</h3>
         <small>{{ .PublishDate.Format "January 2, 2006" }}</small>
         </div>
-        <p class="mb-1">{{ with .Description }}{{ . }}{{ else }}{{ with .Summary }}{{ . }}{{ end }}{{ end }}</p>
+        <p class="mb-1">{{ with .Params.excerpt }}{{ . }}{{ else }}{{ with .Summary }}{{ . }}{{ end }}{{ end }}</p>
     </a>
     {{ end }}
 </div>
