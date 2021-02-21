@@ -4,7 +4,7 @@
         {{ .Content }}
     </div>
     <section>
-        {{ range .Paginator.Pages.ByPublishDate.Reverse }}
+        {{ range .Paginator.Pages }}
         <article>
             <h2><a href="{{ .RelPermalink }}">{{ .Title }}</a></h2>
             <p>{{ with .Description }}{{ . }}{{ else }}{{ with .Summary }}{{ . }}{{ end }}{{ end }}</p>
