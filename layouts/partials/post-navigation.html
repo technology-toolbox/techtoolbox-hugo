@@ -1,7 +1,7 @@
-{{ if or .NextInSection .PrevInSection }}
+{{ if or .Next .Prev }}
 <h3>Other Posts</h3>
 <ul class="nav flex-column">
-    {{ with .NextInSection }}
+    {{ with .Next }}
     <li class="nav-item">
         <a class="nav-link" href="{{ .Permalink }}">
             {{ .Title }}
@@ -9,7 +9,7 @@
         </a>
     </li>
     {{ end }}
-    {{ with .PrevInSection }}
+    {{ with .Prev }}
     <li class="nav-item">
         <a class="nav-link" href="{{ .Permalink }}">
             {{ .Title }}
