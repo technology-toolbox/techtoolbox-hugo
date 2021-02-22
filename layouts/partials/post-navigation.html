@@ -1,3 +1,4 @@
+{{ if or .NextInSection .PrevInSection }}
 <h3>Other Posts</h3>
 <ul class="nav flex-column">
     {{ with .NextInSection }}
@@ -17,3 +18,4 @@
     </li>
     {{ end }}
 </ul>
+{{ end }}
