@@ -1,0 +1,36 @@
+<h2>Archives</h2>
+{{ $accordionId := "blog-archives" }}
+<div id="{{ $accordionId }}">
+  {{ range (where .Site.RegularPages.ByPublishDate "Section" "blog").GroupByPublishDate "2006" }}
+    {{ $year := .Key }}
+    <div class="card">
+      {{ $cardHeaderId := printf "%s-%s-%s" $accordionId "heading" $year }}
+      {{ $collapseId := printf "%s-%s-%s" $accordionId "collapse" $year }}
+      <div class="card-header" id="">
+        <h3 class="mb-0">
+          <button class="btn btn-link" data-toggle="collapse"
+            data-target="#{{ $collapseId }}" aria-expanded="true"
+            aria-controls="{{ $collapseId }}">
+            {{ .Key }}
+          </button>
+        </h3>
+      </div>
+      <div id="{{ $collapseId }}" class="collapse"
+        aria-labelledby="{{ $cardHeaderId }}"
+        data-parent="#{{ $accordionId }}">
+        <div class="card-body">
+          <ul class="list-group-flush">
+            {{ range .Pages.GroupByPublishDate "January" }}
+            {{ $page := index (first 1 .Pages) 0 }}
+            {{ $month := $page.PublishDate.Format "01" }}
+            <li class="list-group-item d-flex justify-content-between align-items-center">
+              <a href="/blog/jjameson/{{ $year }}/{{ $month }}">{{ .Key }}</a>
+              <span class="badge badge-primary badge-pill">{{ len .Pages }}</span>
+            </li>
+            {{ end }}
+          </ul>
+        </div>
+      </div>
+    </div>
+    {{ end }}
+  </div>
