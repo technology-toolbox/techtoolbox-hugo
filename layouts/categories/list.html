@@ -2,6 +2,7 @@
 <section>
   <div class="row">
     <main class="col-lg-8">
+      <h2>{{ .Title }}</h2>
       <div id="content">
         {{ .Content }}
       </div>
@@ -9,13 +10,13 @@
         {{ if .Data.Terms }}
           {{ range .Data.Terms.Alphabetical }}
           <article>
-              <h2><a href="{{ .Page.Permalink }}">{{ .Page.Title }}</a></h2>
+              <h3><a href="{{ .Page.Permalink }}">{{ .Page.Title }}</a></h3>
           </article>
           {{ end }}
         {{ else }}
           {{ range .Paginator.Pages }}
           <article>
-            <h2><a href="{{ .RelPermalink }}">{{ .Title }}</a></h2>
+            <h3><a href="{{ .RelPermalink }}">{{ .Title }}</a></h3>
             <p>{{ with .Params.excerpt }}{{ . }}{{ else }}{{ with .Summary }}{{ . }}{{ end }}{{ end }}</p>
           </article>
           {{ end }}
