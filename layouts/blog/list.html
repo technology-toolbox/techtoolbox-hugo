@@ -6,7 +6,7 @@
         {{ .Content }}
       </div>
       <section>
-        {{ range .Paginator.Pages.ByPublishDate.Reverse }}
+        {{ range (.Paginate .RegularPagesRecursive).Pages }}
           {{- partial "post-summary-article" . }}
         {{ end }}
       </section>
