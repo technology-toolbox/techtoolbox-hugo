@@ -1,6 +1,6 @@
 <h2>Categories</h2>
-<ul>
+<ul class="list-group">
   {{ range .Site.Taxonomies.categories.Alphabetical }}
-    <li><a href="{{ .Page.Permalink }}">{{ .Page.Title }}</a></li>
+    <li class="list-group-item"><a href="{{ .Page.Permalink }}">{{ .Page.Title }}</a></li>
   {{ end }}
 </ul>
