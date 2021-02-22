@@ -1,0 +1,37 @@
+{{ define "main" }}
+<section>
+  <div class="row">
+    <main class="col-lg-8">
+      <h2>{{ .Title }}</h2>
+      <div id="content">
+        {{ .Content }}
+      </div>
+      <section>
+        {{ if .Data.Terms }}
+          {{ range .Data.Terms.Alphabetical }}
+          <article>
+              <h3><a href="{{ .Page.Permalink }}">{{ .Page.Title }}</a></h3>
+          </article>
+          {{ end }}
+        {{ else }}
+          {{ range .Paginator.Pages }}
+          <article>
+            <h3><a href="{{ .RelPermalink }}">{{ .Title }}</a></h3>
+            <p>{{ with .Params.excerpt }}{{ . }}{{ else }}{{ with .Summary }}{{ . }}{{ end }}{{ end }}</p>
+          </article>
+          {{ end }}
+        {{ end }}
+      </section>
+      {{- template "_internal/pagination.html" . -}}
+    </main>
+
+    <aside class="col-lg-4">
+      {{- partial "recent-post-list" . -}}
+      {{ if not .Data.Terms }}
+        {{- partial "categories" . -}}
+      {{ end }}
+    </aside><!-- /.col-lg-4 -->
+
+  </div><!-- /.row -->
+</section>
+{{ end }}

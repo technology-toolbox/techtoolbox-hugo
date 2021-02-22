@@ -31,9 +31,8 @@
   </nav>
 
   {{ if not .IsHome }}
-    {{ if eq .Section "blog" }}
-      <h1>{{ .CurrentSection.Title }}</h1>
-    {{ else if eq .Section "categories" }}
+    {{$blogSections := slice "blog" "categories" "tags" }}
+    {{ if in $blogSections .Section }}
       {{$blogHomePage := .Site.GetPage "section" "blog/jjameson" }}
       <h1>{{ $blogHomePage.Title }}</h1>
     {{ else }}
