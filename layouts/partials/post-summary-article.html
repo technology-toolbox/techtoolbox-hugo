@@ -1,4 +1,18 @@
 <article>
     <h3><a href="{{ .RelPermalink }}">{{ .Title }}</a></h3>
+    <div class="post-info small text-muted">
+        <div class="published">
+            <span class="label d-none">Published</span>
+            <span class="value">{{ .PublishDate.Format "January 2, 2006" }}</span>
+            <span class="label d-none">at</span>
+            <span class="value">{{ .PublishDate.Format "3:04 PM" }}</span>
+        </div>
+        {{ $author := .Params.author | default .CurrentSection.Params.author }}
+        {{ with $author }}
+        <div class="vcard author d-none">
+            by <span class="fn">{{ $author }}</span>
+        </div>
+        {{ end }}
+    </div>
     <p>{{ with .Params.excerpt }}{{ . }}{{ else }}{{ with .Summary }}{{ . }}{{ end }}{{ end }}</p>
 </article>
