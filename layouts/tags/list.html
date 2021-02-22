@@ -27,9 +27,7 @@
 
     <aside class="col-lg-4">
       {{- partial "recent-post-list" . -}}
-      {{ if not .Data.Terms }}
-        {{- partial "categories" . -}}
-      {{ end }}
+      {{- partial "categories" . -}}
     </aside><!-- /.col-lg-4 -->
 
   </div><!-- /.row -->
