@@ -5,9 +5,12 @@
         <span class="label">at</span>
         <span class="value">{{ .PublishDate.Format "3:04 PM" }}</span>
     </div>
+    {{ $author := .Params.author | default .CurrentSection.Params.author }}
+    {{ with $author }}
     <div class="vcard author">
-        by <span class="fn">Jeremy Jameson</span>
+        by <span class="fn">{{ $author }}</span>
     </div>
+    {{ end }}
     <div class="categories">
         <div class="post-categories">
         Categories:
