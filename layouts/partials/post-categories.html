@@ -1,0 +1,12 @@
+<div class="post-categories">
+    Categories:
+    <ul class="nav">
+        {{ range .Params.categories }}
+        <li class="nav-item">
+            <a class="nav-link"
+              href="{{ relURL (print "/blog/jjameson/category/" . | urlize) }}"
+              title="View all posts in this category">{{ . }}</a>
+        </li>
+        {{ end }}
+    </ul>
+</div>
