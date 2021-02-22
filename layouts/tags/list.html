@@ -8,7 +8,11 @@
       </div>
       <section>
         {{ if .Data.Terms }}
-          {{ range .Data.Terms.Alphabetical }}
+          {{ $sortedTerms := slice }}
+          {{ range .Data.Terms.Alphabetical}}
+            {{ $sortedTerms = $sortedTerms | append .Page }}
+          {{ end }}
+          {{ range (.Paginate $sortedTerms).Pages }}
           <article>
               <h3><a href="{{ .Page.Permalink }}">{{ .Page.Title }}</a></h3>
           </article>
