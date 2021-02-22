@@ -1,0 +1,19 @@
+<h3>Other Posts</h3>
+<ul class="nav flex-column">
+    {{ with .NextInSection }}
+    <li class="nav-item">
+        <a class="nav-link" href="{{ .Permalink }}">
+            {{ .Title }}
+            <span class="badge badge-secondary">Next</span>
+        </a>
+    </li>
+    {{ end }}
+    {{ with .PrevInSection }}
+    <li class="nav-item">
+        <a class="nav-link" href="{{ .Permalink }}">
+            {{ .Title }}
+            <span class="badge badge-secondary">Previous</span>
+        </a>
+    </li>
+    {{ end }}
+</ul>
