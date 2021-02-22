@@ -1,0 +1,4 @@
+<article>
+    <h3><a href="{{ .RelPermalink }}">{{ .Title }}</a></h3>
+    <p>{{ with .Params.excerpt }}{{ . }}{{ else }}{{ with .Summary }}{{ . }}{{ end }}{{ end }}</p>
+</article>

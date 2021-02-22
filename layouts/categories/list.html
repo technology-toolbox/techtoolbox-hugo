@@ -15,10 +15,7 @@
           {{ end }}
         {{ else }}
           {{ range .Paginator.Pages }}
-          <article>
-            <h3><a href="{{ .RelPermalink }}">{{ .Title }}</a></h3>
-            <p>{{ with .Params.excerpt }}{{ . }}{{ else }}{{ with .Summary }}{{ . }}{{ end }}{{ end }}</p>
-          </article>
+            {{- partial "post-summary-article" . }}
           {{ end }}
         {{ end }}
       </section>

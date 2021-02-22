@@ -7,10 +7,7 @@
       </div>
       <section>
         {{ range .Paginator.Pages.ByPublishDate.Reverse }}
-        <article>
-          <h2><a href="{{ .RelPermalink }}">{{ .Title }}</a></h2>
-          <p>{{ with .Params.excerpt }}{{ . }}{{ else }}{{ with .Summary }}{{ . }}{{ end }}{{ end }}</p>
-        </article>
+          {{- partial "post-summary-article" . }}
         {{ end }}
       </section>
       {{- template "_internal/pagination.html" . -}}
