@@ -7,12 +7,7 @@
             <span class="label d-none">at</span>
             <span class="value">{{ .PublishDate.Format "3:04 PM" }}</span>
         </div>
-        {{ $author := .Params.author | default .CurrentSection.Params.author }}
-        {{ with $author }}
-        <div class="vcard author d-none">
-            by <span class="fn">{{ $author }}</span>
-        </div>
-        {{ end }}
+        {{- partial "author-vcard" . -}}
     </div>
     <p>{{ with .Params.excerpt }}{{ . }}{{ else }}{{ with .Summary }}{{ . }}{{ end }}{{ end }}</p>
 </article>

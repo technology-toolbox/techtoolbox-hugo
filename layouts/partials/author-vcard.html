@@ -1,0 +1,6 @@
+{{ $author := .Params.author | default .CurrentSection.Params.author }}
+{{ with $author }}
+<div class="vcard author d-none">
+    by <span class="fn">{{ $author }}</span>
+</div>
+{{ end }}
