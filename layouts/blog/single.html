@@ -3,6 +3,9 @@
   <div class="row">
     <main class="col-lg-8">
       <h2>{{ .Title }}</h2>
+
+      {{- partial "post-info" . -}}
+
       <article id="content">
         {{ .Content }}
       </article>

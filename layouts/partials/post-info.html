@@ -1,0 +1,25 @@
+<div class="post-info small text-muted">
+    <div class="published">
+        <span class="label">Published</span>
+        <span class="value">{{ .PublishDate.Format "January 2, 2006" }}</span>
+        <span class="label">at</span>
+        <span class="value">{{ .PublishDate.Format "3:04 PM" }}</span>
+    </div>
+    <div class="vcard author">
+        by <span class="fn">Jeremy Jameson</span>
+    </div>
+    <div class="categories">
+        <div class="post-categories">
+        Categories:
+        <ul class="nav">
+            {{ range .Params.categories }}
+            <li class="nav-item">
+                <a class="nav-link"
+                  href="{{ relURL (print "/blog/jjameson/category/" . | urlize) }}"
+                  title="View all posts in this category">{{ . }}</a>
+            </li>
+            {{ end }}
+        </ul>
+        </div>
+    </div>
+</div>
