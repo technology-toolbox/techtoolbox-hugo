@@ -1,0 +1,50 @@
+{{ $tagCount := len $.Site.Taxonomies.tags }}
+{{ if gt $tagCount 0 }}
+    <h2>Tags</h2>
+    {{ $maxTagsToShow := 15 }}
+    {{ $fontUnit := "rem" }}
+    {{ $largestFontSize := 1.5 }}
+    {{ $smallestFontSize := 0.8 }}
+    {{ $largestFontWeight := 700 }}
+    {{ $smallestFontWeight := 400 }}
+    {{ $maxPages := len (index $.Site.Taxonomies.tags.ByCount 0).Pages }}
+    {{ $minPages := len (index $.Site.Taxonomies.tags.ByCount.Reverse 0).Pages }}
+
+    {{ if gt $tagCount $maxTagsToShow }}
+        {{ $minPages = len (index $.Site.Taxonomies.tags.ByCount $maxTagsToShow).Pages }}
+    {{ end }}
+
+    {{ $topTags := slice }}
+    {{ range (first $maxTagsToShow $.Site.Taxonomies.tags.ByCount) }}
+        {{ $tag := .Page.Title }}
+        {{ $topTags = $topTags | append $tag }}
+    {{ end }}
+
+    <div id="tag-cloud">
+        <ul class="list-inline">
+        {{ range $key, $taxonomy := $.Site.Taxonomies.tags }}
+            {{ $tag:= .Page.Title }}
+
+            {{ if in $topTags $tag }}
+                {{ $pageCount := len $taxonomy.Pages }}
+                {{ $weight := div (sub (math.Log $pageCount) (math.Log $minPages)) (sub (math.Log $maxPages) (math.Log $minPages)) }}
+                {{ $currentFontSize := (add $smallestFontSize (mul (sub $largestFontSize $smallestFontSize) $weight) ) }}
+                {{ $currentFontWeight := (add $smallestFontWeight (mul (sub $largestFontWeight $smallestFontWeight) $weight) ) }}
+                {{ $roundedFontWeight := mul (math.Round (div $currentFontWeight 100)) 100 }}
+                {{ $fontSizeStyle := printf "font-size: %.2f%s" $currentFontSize $fontUnit }}
+                {{ $fontWeightStyle := printf "font-weight: %.f" $roundedFontWeight }}
+                <li class="list-inline-item">
+                    <a href="{{ "/tags/" | relLangURL }}{{ $key | urlize }}"
+                        style="{{ $fontWeightStyle }}; {{ $fontSizeStyle }}">
+                    {{ $tag }}
+                    </a>
+                </li>
+            {{ end }}
+        {{ end }}
+        {{ if gt $tagCount $maxTagsToShow }}
+            <li class="list-inline-item"><a href="{{ "/tags/" | relLangURL }}">
+                <span class="badge badge-secondary">More...</span></a></li>
+        {{ end }}
+        </ul>
+    </div>
+{{ end }}
