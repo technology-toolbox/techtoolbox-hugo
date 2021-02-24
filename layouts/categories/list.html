@@ -15,7 +15,7 @@
           {{ end }}
         {{ else }}
           {{ range .Paginator.Pages }}
-            {{- partial "post-summary-article" . }}
+            {{- partial "post-summary-article.html" . }}
           {{ end }}
         {{ end }}
       </section>
@@ -23,12 +23,12 @@
     </main>
 
     <aside class="col-lg-4">
-      {{- partial "recent-post-list" . -}}
-      {{- partial "blog-tags" . -}}
+      {{- partial "recent-post-list.html" . -}}
+      {{- partial "blog-tags.html" . -}}
       {{ if not .Data.Terms }}
-        {{- partial "blog-categories" . -}}
+        {{- partial "blog-categories.html" . -}}
       {{ end }}
-      {{- partial "blog-archives" . -}}
+      {{- partial "blog-archives.html" . -}}
     </aside><!-- /.col-lg-4 -->
 
   </div><!-- /.row -->

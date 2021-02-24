@@ -4,21 +4,21 @@
     <main class="col-lg-8">
       <h2>{{ .Title }}</h2>
 
-      {{- partial "post-info" . -}}
+      {{- partial "post-info.html" . -}}
 
       <article id="content">
         {{ .Content }}
       </article>
 
-      {{- partial "post-tags" . -}}
-      {{- partial "post-navigation" . -}}
+      {{- partial "post-tags.html" . -}}
+      {{- partial "post-navigation.html" . -}}
     </main>
 
     <aside class="col-lg-4">
-      {{- partial "recent-post-list" . -}}
-      {{- partial "blog-tags" . -}}
-      {{- partial "blog-categories" . -}}
-      {{- partial "blog-archives" . -}}
+      {{- partial "recent-post-list.html" . -}}
+      {{- partial "blog-tags.html" . -}}
+      {{- partial "blog-categories.html" . -}}
+      {{- partial "blog-archives.html" . -}}
     </aside><!-- /.col-lg-4 -->
 
   </div><!-- /.row -->
