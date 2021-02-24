@@ -66,8 +66,9 @@ $breadcrumb-padding-x: 0.5rem;
 @import "../../node_modules/bootstrap/scss/print";
 
 // Custom variables
+$accent-border-color: #c8d7eb;
 $blockquote-bg-color: $light;
-$blockquote-border-color: #c8d7eb;
+$blockquote-border-color: $accent-border-color;
 
 // Custom styles for Technology Toolbox
 @import "base";

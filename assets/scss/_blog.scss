@@ -2,6 +2,14 @@
   margin-bottom: 1rem;
 }
 
-#blog-archives ul.list-group-flush {
-  padding-inline-start: 0;
+#blog-archives {
+  h3 {
+    border: none;
+    margin: inherit;
+    padding-bottom: 0;
+  }
+
+  ul.list-group-flush {
+    padding-inline-start: 0;
+  }
 }

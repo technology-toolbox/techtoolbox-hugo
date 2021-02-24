@@ -5,6 +5,22 @@ h1 {
   padding: 0.5rem 0.5rem 0.6rem 0.5rem;
 }
 
+h2 {
+  border-bottom: 1px solid $accent-border-color;
+  color: $primary;
+  font-size: $h3-font-size; // decrease font size since we are adding a border
+  margin: 0.75rem 0 0.25rem 0;
+  padding-bottom: 0.25rem;
+}
+
+h3 {
+  border-bottom: 1px solid $accent-border-color;
+  color: $primary;
+  font-size: $h4-font-size; // decrease font size since we are adding a border
+  margin: 1rem 0 0 0;
+  padding-bottom: 0.25rem;
+}
+
 // Blockquotes
 blockquote {
   background: $blockquote-bg-color;
