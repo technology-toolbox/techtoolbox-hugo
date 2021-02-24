@@ -2,7 +2,9 @@
 <section>
   <div class="row">
     <main class="col-lg-8">
-      {{ if ne .Dir "blog\\jjameson\\" }}
+      {{ if eq .Dir "blog\\jjameson\\" }}
+      <h2>Most Recent Posts</h2>
+      {{ else }}
       <h2>{{ .Title }}</h2>
       {{ end }}
       <div id="content">
