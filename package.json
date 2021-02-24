@@ -1,0 +1,19 @@
+{
+  "name": "techtoolbox-hugo",
+  "version": "1.0.0",
+  "description": "Custom Hugo theme for Technology Toolbox",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/technology-toolbox/techtoolbox-hugo.git"
+  },
+  "author": "Jeremy Jameson",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/technology-toolbox/techtoolbox-hugo/issues"
+  },
+  "homepage": "https://github.com/technology-toolbox/techtoolbox-hugo#readme"
+}
