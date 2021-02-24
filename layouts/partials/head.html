@@ -5,8 +5,7 @@
     <title>{{ if not .IsHome }}{{ with .Title }}{{ . }} | {{ end }}{{ end }}{{ .Site.Title }}</title>
     <link rel="canonical" href="{{ .Permalink }}" />
 
-    {{ $customBootstrapStylesheet := resources.Get "scss/techtoolbox-bootstrap.scss" | resources.ToCSS (dict "outputStyle" "compressed") | fingerprint }}
-    <link rel="stylesheet" href="{{ $customBootstrapStylesheet.Permalink }}">
+    {{- partial "stylesheet" . -}}
 
     <style>
       body {
