@@ -15,5 +15,10 @@
   "bugs": {
     "url": "https://github.com/technology-toolbox/techtoolbox-hugo/issues"
   },
-  "homepage": "https://github.com/technology-toolbox/techtoolbox-hugo#readme"
+  "homepage": "https://github.com/technology-toolbox/techtoolbox-hugo#readme",
+  "devDependencies": {
+    "bootstrap": "^4.6.0",
+    "jquery": "^3.5.1",
+    "popper.js": "^1.16.1"
+  }
 }
