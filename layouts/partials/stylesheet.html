@@ -1,2 +1,12 @@
-{{ $customBootstrapStylesheet := resources.Get "scss/techtoolbox-bootstrap.scss" | resources.ToCSS (dict "outputStyle" "compressed") | fingerprint }}
-<link rel="stylesheet" href="{{ $customBootstrapStylesheet.Permalink }}">
+{{- $sassOptions := dict "targetPath" "assets/css/techtoolbox-bootstrap.css" -}}
+
+{{- if eq hugo.Environment "production" -}}
+  {{- $sassOptions = merge $sassOptions (dict "outputStyle" "compressed") -}}
+{{- end -}}
+
+{{- $style := resources.Get "scss/techtoolbox-bootstrap.scss" | toCSS $sassOptions -}}
+
+{{- if eq hugo.Environment "production" -}}
+  {{- $style = $style | postCSS | fingerprint -}}
+{{- end }}
+<link rel="stylesheet" href="{{ $style.Permalink | relURL }}">
