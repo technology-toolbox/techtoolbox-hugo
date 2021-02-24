@@ -2,6 +2,8 @@
 
 {{- if eq hugo.Environment "production" -}}
   {{- $sassOptions = merge $sassOptions (dict "outputStyle" "compressed") -}}
+{{- else -}}
+  {{- $sassOptions = merge $sassOptions (dict "enableSourceMap" true) -}}
 {{- end -}}
 
 {{- $style := resources.Get "scss/techtoolbox-bootstrap.scss" | toCSS $sassOptions -}}
