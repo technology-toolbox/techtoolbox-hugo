@@ -1,0 +1,14 @@
+h1 {
+  background: #77c856 url(/img/bg-h1-accent1-1000x150.png) no-repeat;
+  color: #fff;
+  margin-bottom: 0;
+  padding: 0.5rem 0.5rem 0.6rem 0.5rem;
+}
+
+// Blockquotes
+blockquote {
+  background: $blockquote-bg-color;
+  border-left: 0.5rem solid $blockquote-border-color;
+  margin: 1rem 0 1rem 1rem;
+  padding: 1em 1rem 0.3rem 1rem;
+}

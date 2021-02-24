@@ -1,0 +1,36 @@
+// User input typically entered via keyboard
+kbd {
+  background-color: $secondary;
+}
+
+// Blocks of code, console blocks, and excerpts from various logs
+pre,
+.consoleBlock,
+.logExcerpt {
+  background-color: $light;
+  border: 1px solid $secondary;
+  cursor: text;
+  margin: 1rem 0.25rem;
+  padding: 1rem;
+}
+
+/* TODO: Remove this (where necessary, use "pre-scrollable" instead)
+pre,
+.consoleBlock {
+  max-height: 15rem;
+  overflow: auto;
+}
+*/
+
+.consoleBlock.small {
+  max-width: 39rem;
+}
+
+.consoleBlock p {
+  padding-left: 2rem;
+  text-indent: -2rem;
+}
+
+.consoleBlock p:last-child {
+  margin-bottom: 0;
+}
