@@ -25,13 +25,30 @@
   <!--   /blog/jjameson/2007/03/22/backedup-and-notbackedup/ -->
 
   <!-- In this case, exclude "2007", "03", and "22" from breadcrumb -->
-  {{ if hasPrefix .p1.RelPermalink "/blog/jjameson/" }}
-    {{ $relativeUrl := replace .p1.RelPermalink "/blog/jjameson/" "" }}
-    {{ $urlParts := split $relativeUrl "/" }}
-    {{ $urlPartCount := len $urlParts }}
 
-    {{ if and (ge $urlPartCount 2) (le $urlPartCount 4) }}
-      {{ $includePageInBreadcrumb = false }}
+  <!-- However, for "archive" pages, include the year/month/day items. -->
+  <!-- For example, consider the following relative URL: -->
+
+  <!--   /blog/jjameson/2007/03/22/ -->
+
+  <!-- In this case, include "2007", "03", and "22" in breadcrumb -->
+
+  {{ if hasPrefix .p1.RelPermalink "/blog/jjameson/" }}
+    {{ $p1RelativeUrl := replace .p1.RelPermalink "/blog/jjameson/" "" }}
+    {{ $p2RelativeUrl := replace .p2.RelPermalink "/blog/jjameson/" "" }}
+
+    <!--
+      For individual blog posts (i.e. not "archive" pages) the number of URL
+      parts is greater than 4. If that isn't the case, then don't exclude
+      the year/month/day from the breadcrumb.
+    -->
+    {{ if gt (len (split $p2RelativeUrl "/")) 4 }}
+      {{ $urlParts := split $p1RelativeUrl "/" }}
+      {{ $urlPartCount := len $urlParts }}
+
+      {{ if and (ge $urlPartCount 2) (le $urlPartCount 4) }}
+        {{ $includePageInBreadcrumb = false }}
+      {{ end }}
     {{ end }}
   {{ end }}
 
