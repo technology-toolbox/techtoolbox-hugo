@@ -14,7 +14,12 @@ h2 {
 }
 
 h2.card-header {
+  background-color: #77c856;
+  background-image: linear-gradient(180deg, #5a9942, #77c856);
+  color: $white;
+  font-size: $h4-font-size; // decrease size even further (card header color)
   margin: 0; // override margin to avoid whitespace in card-header
+  padding: 0.6rem 0.75rem;
 }
 
 h3 {
