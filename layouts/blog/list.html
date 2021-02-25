@@ -2,7 +2,9 @@
 <section>
   <div class="row">
     <main class="col-lg-8">
-      {{ if eq .Dir "blog\\jjameson\\" }}
+      {{ $isBlogHomePage := false }}
+      {{ with .File }}{{ $isBlogHomePage = (eq .Dir "blog\\jjameson\\") }}{{ end }}
+      {{ if $isBlogHomePage }}
       <h2>Most Recent Posts</h2>
       {{ else }}
       <h2>{{ .Title }}</h2>
@@ -19,7 +21,7 @@
     </main>
 
     <aside class="col-lg-4">
-      {{ if ne .Dir "blog\\jjameson\\" }}
+      {{ if not $isBlogHomePage }}
       {{- partial "recent-post-list.html" . -}}
       {{ end }}
       {{- partial "blog-tags.html" . -}}
