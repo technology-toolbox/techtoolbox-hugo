@@ -55,10 +55,12 @@
   {{ if $includePageInBreadcrumb }}
     {{ if eq .p1 .p2 }}
       <li class="breadcrumb-item active" aria-current="page">
+        {{ $pageTitle }}
+      </li>
     {{ else }}
       <li class="breadcrumb-item">
-    {{ end }}
         <a href="{{ .p1.RelPermalink }}">{{ $pageTitle }}</a>
       </li>
+    {{ end }}
   {{ end }}
 {{ end }}
