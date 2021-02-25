@@ -3,59 +3,53 @@
     {{ template "blog-breadcrumbnav" (dict "p1" . "p2" .) }}
   </ol>
 </nav>
-
 <!-- templates -->
 {{ define "blog-breadcrumbnav" }}
-  {{ if .p1.Parent }}
-    {{ template "blog-breadcrumbnav" (dict "p1" .p1.Parent "p2" .p2 )  }}
-  {{ else if not .p1.IsHome }}
-    {{ template "blog-breadcrumbnav" (dict "p1" .p1.Site.Home "p2" .p2 )  }}
-  {{ end }}
+  {{- if .p1.Parent -}}
+    {{ template "blog-breadcrumbnav" (dict "p1" .p1.Parent "p2" .p2 ) }}
+  {{- else if not .p1.IsHome -}}
+    {{ template "blog-breadcrumbnav" (dict "p1" .p1.Site.Home "p2" .p2 ) }}
+  {{- end -}}
+  {{- $includePageInBreadcrumb := true -}}
+  <!--
+    Remove year/month/day links from individual blog posts
+    For example, consider the following relative URL:
 
-  {{ $includePageInBreadcrumb := true }}
+      /blog/jjameson/2007/03/22/backedup-and-notbackedup/
 
-  <!-- Remove year/month/day links from individual blog posts -->
-  <!-- For example, consider the following relative URL: -->
+    In this case, exclude "2007", "03", and "22" from breadcrumb.
 
-  <!--   /blog/jjameson/2007/03/22/backedup-and-notbackedup/ -->
+    However, for "archive" pages, include the year/month/day items.
+    For example, consider the following relative URL:
 
-  <!-- In this case, exclude "2007", "03", and "22" from breadcrumb -->
+      /blog/jjameson/2007/03/22/
 
-  <!-- However, for "archive" pages, include the year/month/day items. -->
-  <!-- For example, consider the following relative URL: -->
-
-  <!--   /blog/jjameson/2007/03/22/ -->
-
-  <!-- In this case, include "2007", "03", and "22" in breadcrumb -->
-
-  {{ if hasPrefix .p1.RelPermalink "/blog/jjameson/" }}
-    {{ $p1RelativeUrl := replace .p1.RelPermalink "/blog/jjameson/" "" }}
-    {{ $p2RelativeUrl := replace .p2.RelPermalink "/blog/jjameson/" "" }}
-
+    In this case, include "2007", "03", and "22" in breadcrumb -->
+  {{- if hasPrefix .p1.RelPermalink "/blog/jjameson/" -}}
+    {{- $p1RelativeUrl := replace .p1.RelPermalink "/blog/jjameson/" "" -}}
+    {{- $p2RelativeUrl := replace .p2.RelPermalink "/blog/jjameson/" "" -}}
     <!--
       For individual blog posts (i.e. not "archive" pages) the number of URL
       parts is greater than 4. If that isn't the case, then don't exclude
       the year/month/day from the breadcrumb.
     -->
-    {{ if gt (len (split $p2RelativeUrl "/")) 4 }}
-      {{ $urlParts := split $p1RelativeUrl "/" }}
-      {{ $urlPartCount := len $urlParts }}
-
-      {{ if and (ge $urlPartCount 2) (le $urlPartCount 4) }}
-        {{ $includePageInBreadcrumb = false }}
-      {{ end }}
-    {{ end }}
-  {{ end }}
-
-  {{ if $includePageInBreadcrumb }}
-    {{ if eq .p1 .p2 }}
+    {{- if gt (len (split $p2RelativeUrl "/")) 4 -}}
+      {{- $urlParts := split $p1RelativeUrl "/" -}}
+      {{- $urlPartCount := len $urlParts -}}
+      {{- if and (ge $urlPartCount 2) (le $urlPartCount 4) -}}
+        {{- $includePageInBreadcrumb = false -}}
+      {{- end -}}
+    {{- end -}}
+  {{- end -}}
+  {{- if $includePageInBreadcrumb -}}
+    {{- if eq .p1 .p2 -}}
       <li class="breadcrumb-item active" aria-current="page">
         {{ .p1.Title }}
       </li>
-    {{ else }}
+    {{- else -}}
       <li class="breadcrumb-item">
         <a href="{{ .p1.RelPermalink }}">{{ .p1.Title }}</a>
       </li>
-    {{ end }}
-  {{ end }}
-{{ end }}
+    {{- end -}}
+  {{- end -}}
+{{- end -}}
