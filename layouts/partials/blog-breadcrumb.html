@@ -12,11 +12,6 @@
     {{ template "blog-breadcrumbnav" (dict "p1" .p1.Site.Home "p2" .p2 )  }}
   {{ end }}
 
-  {{ $pageTitle := .p1.Title }}
-  {{ if eq $pageTitle "Blogs"}}
-    {{ $pageTitle = "Blog" }}
-  {{ end }}
-
   {{ $includePageInBreadcrumb := true }}
 
   <!-- Remove year/month/day links from individual blog posts -->
@@ -55,11 +50,11 @@
   {{ if $includePageInBreadcrumb }}
     {{ if eq .p1 .p2 }}
       <li class="breadcrumb-item active" aria-current="page">
-        {{ $pageTitle }}
+        {{ .p1.Title }}
       </li>
     {{ else }}
       <li class="breadcrumb-item">
-        <a href="{{ .p1.RelPermalink }}">{{ $pageTitle }}</a>
+        <a href="{{ .p1.RelPermalink }}">{{ .p1.Title }}</a>
       </li>
     {{ end }}
   {{ end }}
