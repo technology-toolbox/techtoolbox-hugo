@@ -1,4 +1,7 @@
+// Do not apply the following rules to "cards within cards" (e.g. "Archives")
 aside > .card {
+  border: 1px solid #77c856;
+  border-radius: 0 0 1rem 1rem;
   margin-bottom: 1em; // add spacing between cards in sidebar
 }
 
@@ -20,4 +23,13 @@ aside > .card {
   .tag-cloud {
     padding: 0.5rem;
   }
+}
+
+.card > .list-group:last-child {
+  border-bottom-right-radius: calc(1rem - 1px);
+  border-bottom-left-radius: calc(1rem - 1px);
+}
+
+.card-header:first-child {
+  border-radius: 0; // do not round top-left and top-right corners
 }
