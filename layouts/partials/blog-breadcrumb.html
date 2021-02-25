@@ -11,16 +11,37 @@
   {{ else if not .p1.IsHome }}
     {{ template "blog-breadcrumbnav" (dict "p1" .p1.Site.Home "p2" .p2 )  }}
   {{ end }}
+
   {{ $pageTitle := .p1.Title }}
   {{ if eq $pageTitle "Blogs"}}
     {{ $pageTitle = "Blog" }}
   {{ end }}
 
-  {{ if eq .p1 .p2 }}
-    <li class="breadcrumb-item active" aria-current="page">
-  {{ else }}
-    <li class="breadcrumb-item">
+  {{ $includePageInBreadcrumb := true }}
+
+  <!-- Remove year/month/day links from individual blog posts -->
+  <!-- For example, consider the following relative URL: -->
+
+  <!--   /blog/jjameson/2007/03/22/backedup-and-notbackedup/ -->
+
+  <!-- In this case, exclude "2007", "03", and "22" from breadcrumb -->
+  {{ if hasPrefix .p1.RelPermalink "/blog/jjameson/" }}
+    {{ $relativeUrl := replace .p1.RelPermalink "/blog/jjameson/" "" }}
+    {{ $urlParts := split $relativeUrl "/" }}
+    {{ $urlPartCount := len $urlParts }}
+
+    {{ if and (ge $urlPartCount 2) (le $urlPartCount 4) }}
+      {{ $includePageInBreadcrumb = false }}
+    {{ end }}
   {{ end }}
-      <a href="{{ .p1.RelPermalink }}">{{ $pageTitle }}</a>
-    </li>
+
+  {{ if $includePageInBreadcrumb }}
+    {{ if eq .p1 .p2 }}
+      <li class="breadcrumb-item active" aria-current="page">
+    {{ else }}
+      <li class="breadcrumb-item">
+    {{ end }}
+        <a href="{{ .p1.RelPermalink }}">{{ $pageTitle }}</a>
+      </li>
+  {{ end }}
 {{ end }}
