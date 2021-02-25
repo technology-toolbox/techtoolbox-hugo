@@ -1,11 +1,11 @@
 <div class="card">
   <h2 class="card-header">Most Recent Posts</h2>
   <div class="list-group list-group-flush">
-    {{ range first 3 (where .Site.RegularPages.ByPublishDate.Reverse "Section" "blog") }}
+    {{ range first 4 (where .Site.RegularPages.ByPublishDate.Reverse "Section" "blog") }}
     <a href="{{ .RelPermalink }}" class="list-group-item list-group-item-action">
         <div class="d-flex w-100 justify-content-between">
         <h3 class="mb-1">{{ .Params.title }}</h3>
-        <small>{{ .PublishDate.Format "January 2, 2006" }}</small>
+        <small class="post-date text-right">{{ .PublishDate.Format "January 2, 2006" }}</small>
         </div>
         <p class="mb-1">{{ with .Params.excerpt }}{{ . }}{{ else }}{{ with .Summary }}{{ . }}{{ end }}{{ end }}</p>
     </a>

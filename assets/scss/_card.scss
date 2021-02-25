@@ -1,0 +1,23 @@
+aside > .card {
+  margin-bottom: 1em; // add spacing between cards in sidebar
+}
+
+.card {
+  .list-group h3 {
+    border: none;
+    font-size: $h5-font-size; // decrease font size since we are adding a border
+    margin: 0;
+  }
+
+  .list-group-item {
+    padding: 0.75rem 0.75rem;
+  }
+
+  .post-date {
+    width: 12rem; // prevent date in "Most Recent Posts" on homepage from wrapping
+  }
+
+  .tag-cloud {
+    padding: 0.5rem;
+  }
+}
