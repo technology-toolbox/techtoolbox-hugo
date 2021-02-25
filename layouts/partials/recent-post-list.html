@@ -1,8 +1,10 @@
-<h2>Most Recent Posts</h2>
-<ol class="list-group">
+<div class="card">
+  <h2 class="card-header">Most Recent Posts</h2>
+  <ol class="list-group list-group-flush">
     {{ range first 5 (where .Site.RegularPages.ByPublishDate.Reverse "Section" "blog") }}
     <li class="list-group-item">
         <a href="{{ .RelPermalink }}">{{ .Params.title }}</a>
     </li>
     {{ end }}
-</ol>
+  </ol>
+</div>

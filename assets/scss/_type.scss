@@ -13,6 +13,10 @@ h2 {
   padding-bottom: 0.25rem;
 }
 
+h2.card-header {
+  margin: 0; // override margin to avoid whitespace in card-header
+}
+
 h3 {
   border-bottom: 1px solid $accent-border-color;
   color: $primary;

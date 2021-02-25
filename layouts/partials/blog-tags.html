@@ -1,6 +1,7 @@
 {{- $tagCount := len $.Site.Taxonomies.tags -}}
 {{- if gt $tagCount 0 -}}
-    <h2>Tags</h2>
+<div class="card">
+    <h2 class="card-header">Tags</h2>
     {{- $maxTagsToShow := 15 -}}
     {{- $fontUnit := "rem" -}}
     {{- $largestFontSize := 1.5 -}}
@@ -20,7 +21,7 @@
         {{- $topTags = $topTags | append $tag -}}
     {{- end -}}
 
-    <div id="tag-cloud">
+    <div class="card-body tag-cloud">
         <ul class="list-inline">
         {{- range $key, $taxonomy := $.Site.Taxonomies.tags -}}
             {{- $tag:= .Page.Title -}}
@@ -47,4 +48,5 @@
         {{- end -}}
         </ul>
     </div>
+</div>
 {{- end -}}

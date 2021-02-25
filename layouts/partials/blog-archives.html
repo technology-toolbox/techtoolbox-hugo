@@ -1,6 +1,7 @@
-<h2>Archives</h2>
 {{ $accordionId := "blog-archives" }}
-<div id="{{ $accordionId }}">
+<div class="card" id="{{ $accordionId }}">
+  <h2 class="card-header">Archives</h2>
+  <div class="card-body">
   {{ range (where .Site.RegularPages.ByPublishDate "Section" "blog").GroupByPublishDate "2006" }}
     {{ $year := .Key }}
     <div class="card">
@@ -33,4 +34,5 @@
       </div>
     </div>
     {{ end }}
+    </div>
   </div>
