@@ -1,38 +1,30 @@
-{{ $accordionId := "blog-archives" }}
-<div class="card" id="{{ $accordionId }}">
+<div class="card">
   <h2 class="card-header">Archives</h2>
   <div class="card-body">
-  {{ range (where .Site.RegularPages.ByPublishDate "Section" "blog").GroupByPublishDate "2006" }}
-    {{ $year := .Key }}
-    <div class="card">
-      {{ $cardHeaderId := printf "%s-%s-%s" $accordionId "heading" $year }}
-      {{ $collapseId := printf "%s-%s-%s" $accordionId "collapse" $year }}
-      <div class="card-header" id="">
-        <h3 class="mb-0">
-          <button class="btn btn-link" data-toggle="collapse"
-            data-target="#{{ $collapseId }}" aria-expanded="true"
-            aria-controls="{{ $collapseId }}">
-            {{ .Key }}
+  <nav class="blog-archives-links" aria-label="Blog archives navigation">
+    <ul class="list-unstyled mb-0 py-3 pt-md-1">
+      {{ range (where .Site.RegularPages.ByPublishDate "Section" "blog").GroupByPublishDate "2006" }}
+      {{ $year := .Key }}
+      {{ $collapseId := printf "blog-archives-collapse-%s" $year }}
+      <li class="mb-1">
+          <button class="btn d-inline-flex align-items-center rounded collapsed" data-bs-toggle="collapse" data-bs-target="#{{ $collapseId }}" aria-expanded="false">
+            {{ $year }}
           </button>
-        </h3>
-      </div>
-      <div id="{{ $collapseId }}" class="collapse"
-        aria-labelledby="{{ $cardHeaderId }}"
-        data-parent="#{{ $accordionId }}">
-        <div class="card-body">
-          <ul class="list-group-flush">
-            {{ range .Pages.GroupByPublishDate "January" }}
-            {{ $page := index (first 1 .Pages) 0 }}
-            {{ $month := $page.PublishDate.Format "01" }}
-            <li class="list-group-item d-flex justify-content-between align-items-center">
-              <a href="/blog/jjameson/{{ $year }}/{{ $month }}">{{ .Key }}</a>
-              <span class="badge bg-secondary rounded-pill">{{ len .Pages }}</span>
-            </li>
-            {{ end }}
-          </ul>
-        </div>
-      </div>
-    </div>
-    {{ end }}
-    </div>
-  </div>
+
+          <div class="collapse" id="{{ $collapseId }}">
+            <ul class="list-group-flush">
+              {{ range .Pages.GroupByPublishDate "January" }}
+              {{ $page := index (first 1 .Pages) 0 }}
+              {{ $month := $page.PublishDate.Format "01" }}
+              <li class="list-group-item d-flex justify-content-between align-items-center">
+                <a href="/blog/jjameson/{{ $year }}/{{ $month }}">{{ .Key }}</a>
+                <span class="badge bg-secondary rounded-pill">{{ len .Pages }}</span>
+              </li>
+              {{ end }}
+            </ul>
+          </div>
+      </li>
+      {{ end }}
+    </ul>
+  </nav>
+</div>
