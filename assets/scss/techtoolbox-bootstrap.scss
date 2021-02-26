@@ -1,4 +1,5 @@
 // Variable overrides
+/*
 $body-color: #4f4f4f;
 $code-color: #8d3886;
 $link-color: #3c78c3;
@@ -23,6 +24,7 @@ $breadcrumb-border-radius: 0;
 $breadcrumb-margin-bottom: 0;
 $breadcrumb-padding-y: 0.25rem;
 $breadcrumb-padding-x: 0.5rem;
+*/
 
 // Configuration
 @import "../../node_modules/bootstrap/scss/functions";
@@ -68,13 +70,16 @@ $breadcrumb-padding-x: 0.5rem;
 @import "../../node_modules/bootstrap/scss/utilities/api";
 
 // Custom variables
+/*
 $accent1-color: #c8d7eb;
 $accent2-color: #77c856;
 $accent2-dark-color: #5a9942;
 $blockquote-bg-color: $light;
 $blockquote-border-color: $accent1-color;
+*/
 
 // Custom styles for Technology Toolbox
+/*
 @import "base";
 @import "blog";
 @import "card";
@@ -85,3 +90,4 @@ $blockquote-border-color: $accent1-color;
 @import "pagination";
 @import "placeholder";
 @import "type";
+*/
