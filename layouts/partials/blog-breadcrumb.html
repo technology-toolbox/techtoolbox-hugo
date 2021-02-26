@@ -48,7 +48,8 @@
       </li>
     {{- else -}}
       <li class="breadcrumb-item">
-        <a href="{{ .p1.RelPermalink }}">{{ .p1.Title }}</a>
+        <a class="text-decoration-none"
+          href="{{ .p1.RelPermalink }}">{{ .p1.Title }}</a>
       </li>
     {{- end -}}
   {{- end -}}
