@@ -18,12 +18,10 @@ $h2-font-size: $font-size-base * 1.75;
 $h3-font-size: $font-size-base * 1.5;
 $h4-font-size: $font-size-base * 1.25;
 $h5-font-size: $font-size-base * 1.1;
-/*
-$breadcrumb-border-radius: 0;
+
 $breadcrumb-margin-bottom: 0;
 $breadcrumb-padding-y: 0.25rem;
 $breadcrumb-padding-x: 0.5rem;
-*/
 
 // Configuration
 @import "../../node_modules/bootstrap/scss/functions";
@@ -79,6 +77,9 @@ $blockquote-border-color: $accent1-color;
 @import "base";
 /*
 @import "blog";
+*/
+@import "breadcrumb";
+/*
 @import "card";
 */
 @import "carousel";
