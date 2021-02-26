@@ -1,6 +1,6 @@
 // Do not apply the following rules to "cards within cards" (e.g. "Archives")
 aside > .card {
-  border: 1px solid #77c856;
+  border: 1px solid $accent2-color;
   border-radius: 0 0 1rem 1rem;
   margin-bottom: 1em; // add spacing between cards in sidebar
 }
@@ -11,7 +11,12 @@ aside > .card {
   }
 
   .list-group-item {
+    border-color: $accent2-color;
     padding: 0.75rem 0.75rem;
+  }
+
+  .list-group-flush .list-group-item {
+    border-style: dashed;
   }
 
   .tag-cloud {
