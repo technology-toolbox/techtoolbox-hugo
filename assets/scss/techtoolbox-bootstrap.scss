@@ -69,24 +69,24 @@ $breadcrumb-padding-x: 0.5rem;
 @import "../../node_modules/bootstrap/scss/utilities/api";
 
 // Custom variables
-/*
 $accent1-color: #c8d7eb;
 $accent2-color: #77c856;
 $accent2-dark-color: #5a9942;
 $blockquote-bg-color: $light;
 $blockquote-border-color: $accent1-color;
-*/
 
 // Custom styles for Technology Toolbox
-/*
 @import "base";
+/*
 @import "blog";
 @import "card";
+*/
 @import "carousel";
+/*
 @import "code";
 @import "images";
 @import "navbar";
 @import "pagination";
 @import "placeholder";
-@import "type";
 */
+@import "type";
