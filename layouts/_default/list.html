@@ -6,7 +6,8 @@
     <section>
         {{ range .Paginator.Pages }}
         <article>
-            <h2><a href="{{ .RelPermalink }}">{{ .Title }}</a></h2>
+            <h2><a class="text-decoration-none"
+                href="{{ .RelPermalink }}">{{ .Title }}</a></h2>
             <p>{{ with .Description }}{{ . }}{{ else }}{{ with .Summary }}{{ . }}{{ end }}{{ end }}</p>
         </article>
         {{ end }}

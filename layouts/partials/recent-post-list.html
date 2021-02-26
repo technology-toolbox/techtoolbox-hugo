@@ -3,7 +3,7 @@
   <ol class="list-group list-group-flush">
     {{ range first 5 (where .Site.RegularPages.ByPublishDate.Reverse "Section" "blog") }}
     <li class="list-group-item">
-        <a href="{{ .RelPermalink }}">{{ .Params.title }}</a>
+        <a class="text-decoration-none" href="{{ .RelPermalink }}">{{ .Params.title }}</a>
     </li>
     {{ end }}
   </ol>

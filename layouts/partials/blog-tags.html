@@ -35,7 +35,7 @@
                 {{- $fontSizeStyle := printf "font-size: %.2f%s" $currentFontSize $fontUnit -}}
                 {{- $fontWeightStyle := printf "font-weight: %.f" $roundedFontWeight -}}
                 <li class="list-inline-item">
-                    <a href="{{- "/tags/" | relLangURL -}}{{- $key | urlize -}}"
+                    <a class="text-decoration-none" href="{{- "/tags/" | relLangURL -}}{{- $key | urlize -}}"
                         style="{{- $fontWeightStyle -}}; {{- $fontSizeStyle -}}">
                     {{- $tag -}}
                     </a>
@@ -43,7 +43,8 @@
             {{- end -}}
         {{- end -}}
         {{- if gt $tagCount $maxTagsToShow -}}
-            <li class="list-inline-item"><a href="{{- "/tags/" | relLangURL -}}">
+            <li class="list-inline-item">
+              <a href="{{- "/tags/" | relLangURL -}}">
                 <span class="badge badge-secondary">More...</span></a></li>
         {{- end -}}
         </ul>
