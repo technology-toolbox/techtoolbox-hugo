@@ -1,13 +1,21 @@
 <div class="card">
   <h2 class="card-header">Most Recent Posts</h2>
   <div class="list-group list-group-flush">
-    {{ range first 4 (where .Site.RegularPages.ByPublishDate.Reverse "Section" "blog") }}
+    {{ range first 3 (where .Site.RegularPages.ByPublishDate.Reverse "Section" "blog") }}
     <a href="{{ .RelPermalink }}" class="list-group-item list-group-item-action">
-        <div class="d-flex w-100 justify-content-between">
-        <h3 class="mb-1">{{ .Params.title }}</h3>
-        <small class="post-date text-right">{{ .PublishDate.Format "January 2, 2006" }}</small>
+      <article>
+        <h3>{{ .Title }}</h3>
+        <div class="post-info small text-muted">
+            <div class="published">
+                <span class="label d-none">Published</span>
+                <span class="value">{{ .PublishDate.Format "January 2, 2006" }}</span>
+                <span class="label d-none">at</span>
+                <span class="value">{{ .PublishDate.Format "3:04 PM" }}</span>
+            </div>
+            {{- partial "author-vcard.html" . -}}
         </div>
-        <p class="mb-1">{{ with .Params.excerpt }}{{ . }}{{ else }}{{ with .Summary }}{{ . }}{{ end }}{{ end }}</p>
+        <p>{{ with .Params.excerpt }}{{ . }}{{ else }}{{ with .Summary }}{{ . }}{{ end }}{{ end }}</p>
+    </article>
     </a>
     {{ end }}
   </div>
