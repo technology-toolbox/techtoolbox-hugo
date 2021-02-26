@@ -10,7 +10,8 @@
         {{ if .Data.Terms }}
           {{ range .Data.Terms.Alphabetical }}
           <article>
-              <h3><a href="{{ .Page.Permalink }}">{{ .Page.Title }}</a></h3>
+              <h3><a class="text-decoration-none"
+                href="{{ .Page.Permalink }}">{{ .Page.Title }}</a></h3>
           </article>
           {{ end }}
         {{ else }}
