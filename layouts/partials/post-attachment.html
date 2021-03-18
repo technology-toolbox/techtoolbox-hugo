@@ -3,7 +3,24 @@
   <h3>Attachment</h3>
   <p>
     <a href="{{ .url }}">{{ .fileName }}</a>
-    <span class="file-size"> ({{ .fileSizeInBytes }})</span>
+    <span class="file-size"> ({{ template "human-readable-byte-size" .fileSizeInBytes }})</span>
   </p>
 </div>
+{{- end -}}
+<!-- templates -->
+{{- define "human-readable-byte-size" -}}
+  {{- $fileSize := . -}}
+  {{- if (gt $fileSize 1125899906842624) -}}
+    {{ div $fileSize 1125899906842624.0 | lang.NumFmt 1 }} PB
+  {{- else if (gt $fileSize 1099511627776) -}}
+    {{ div $fileSize 1099511627776.0 | lang.NumFmt 1 }} TB
+  {{- else if (gt $fileSize 1073741824) -}}
+    {{ div $fileSize 1073741824.0 | lang.NumFmt 1 }} GB
+  {{- else if (gt $fileSize 1048576) -}}
+    {{ div $fileSize 1048576.0 | lang.NumFmt 1 }} MB
+  {{- else if (gt $fileSize 1024.0) -}}
+    {{ div $fileSize 1024.0 | lang.NumFmt 1 }} KB
+  {{- else -}}
+    {{ $fileSize }} bytes
+  {{- end -}}
 {{- end -}}
