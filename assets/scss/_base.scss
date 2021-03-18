@@ -8,6 +8,14 @@ aside {
   margin-bottom: 1.5rem;
 }
 
+ol > li > ol > li {
+  list-style: lower-alpha;
+}
+
+ol > li > ol > li > ol > li {
+  list-style: lower-roman;
+}
+
 .main-footer-wrapper {
   background-color: #fff;
   border-radius: 0 0 1rem 1rem;
