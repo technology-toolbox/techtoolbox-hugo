@@ -21,3 +21,39 @@ ol > li > ol > li > ol > li {
   border-radius: 0 0 1rem 1rem;
   padding: 0.5rem;
 }
+
+.numbered-headings {
+  counter-reset: h1;
+
+  h1:before {
+    content: counter(h1) " ";
+    counter-increment: h1;
+  }
+
+  .appendix h1:before {
+    content: none;
+    counter-increment: none;
+  }
+
+  h1 {
+    background: 0 0;
+    border-bottom: 1px #c8d7eb solid;
+    color: #1e4173;
+    counter-reset: h2;
+    padding: 0;
+  }
+
+  h2:before {
+    content: counter(h1) "." counter(h2) " ";
+    counter-increment: h2;
+  }
+
+  h2 {
+    counter-reset: h3;
+  }
+
+  h3:before {
+    content: counter(h1) "." counter(h2) "." counter(h3) " ";
+    counter-increment: h3;
+  }
+}
