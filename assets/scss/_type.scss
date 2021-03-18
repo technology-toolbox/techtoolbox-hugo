@@ -41,3 +41,28 @@ blockquote {
   margin: 1rem 0 1rem 1rem;
   padding: 1em 1rem 0.3rem 1rem;
 }
+
+.note blockquote {
+  background-color: rgba($blockquote-bg-color, 0.3);
+  border: 0.1rem solid $blockquote-border-color;
+  border-left-width: 0.5rem;
+}
+
+.important blockquote {
+  background-color: rgba($blockquote-bg-color, 0.7);
+  border-width: 0;
+  border-left-width: 0.5rem;
+  border-left-color: $primary;
+}
+
+.update blockquote {
+  background-color: rgba($accent2-color, 0.1);
+  border: 0.1rem solid rgba($accent2-color, 0.7);
+  border-left-width: 0.5rem;
+}
+
+.warning blockquote {
+  background-color: rgba($danger, 0.2);
+  border: 0.1rem solid $danger;
+  border-left-width: 0.5rem;
+}
