@@ -1,0 +1,33 @@
+{{- $msdnBlogUrl := .Params.msdnBlogUrl -}}
+{{- with $msdnBlogUrl -}}
+{{- $slug := index (last 1 (split $msdnBlogUrl "/")) 0 }}
+{{- $slug := index (first 1 (split $slug ".aspx")) 0 }}
+{{- $msdnBlogArchiveUrl := print "https://docs.microsoft.com/en-us/archive/blogs/jjameson/" $slug -}}
+<div class="msdn-blog-post-info mb-3"
+  aria-label="Original MSDN blog post information">
+  {{ $collapseId := "msdn-blog-post-info" }}
+  <button class="btn d-inline-flex align-items-center rounded collapsed"
+    data-bs-toggle="collapse" data-bs-target="#{{ $collapseId }}"
+    aria-expanded="false">
+    Note: This post originally appeared on my MSDN blog.
+  </button>
+  <blockquote class="collapse" id="{{ $collapseId }}">
+    <p>The original URL for this blog post was:</p>
+    <p class="original-url">{{ $msdnBlogUrl }}</p>
+    <p>Since
+      <a href="/blog/jjameson/2011/09/02/last-day-with-microsoft/">
+        I no longer work for Microsoft</a>, I have copied it here in case that
+        blog ever goes away.
+    </p>
+    <p>Microsoft has done a rather poor job of preserving functional links
+      throughout the years, but you <em>might</em> still be able to view the
+      <a href="{{ $msdnBlogArchiveUrl }}" rel="noopener noreferrer"
+        target="_blank">
+        original post</a> in the
+      <a href="https://docs.microsoft.com/en-us/archive/blogs/jjameson"
+        rel="noopener noreferrer" target="_blank">
+        Random Musings of Jeremy Jameson - Blog Archive</a>.
+    </p>
+  </blockquote>
+</div>
+{{- end -}}
