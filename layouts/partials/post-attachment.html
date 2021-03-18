@@ -1,0 +1,9 @@
+{{- with .Params.attachment -}}
+<div class="attachment">
+  <h3>Attachment</h3>
+  <p>
+    <a href="{{ .url }}">{{ .fileName }}</a>
+    <span class="file-size"> ({{ .fileSizeInBytes }})</span>
+  </p>
+</div>
+{{- end -}}
