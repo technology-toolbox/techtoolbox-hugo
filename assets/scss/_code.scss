@@ -14,13 +14,12 @@ pre,
   padding: 1rem;
 }
 
-/* TODO: Remove this (where necessary, use "pre-scrollable" instead)
 pre,
-.consoleBlock {
-  max-height: 15rem;
+.consoleBlock,
+.logExcerpt {
+  max-height: 20rem;
   overflow: auto;
 }
-*/
 
 .consoleBlock.small {
   max-width: 39rem;
