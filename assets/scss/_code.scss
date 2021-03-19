@@ -26,11 +26,27 @@ pre,
   max-width: 39rem;
 }
 
-.consoleBlock p {
-  padding-left: 2rem;
-  text-indent: -2rem;
-}
+.consoleBlock {
+  p {
+    /*
+      Add hanging indent for paragraphs in console blocks. This makes it easier
+      to identify long commands that wrap across multiple lines due to device
+      width constraints.
+    */
+    padding-left: 2rem;
+    text-indent: -2rem;
+  }
 
-.consoleBlock p:last-child {
-  margin-bottom: 0;
+  p:last-child {
+    margin-bottom: 0;
+  }
+
+  samp p {
+    /*
+      Remove hanging indent for <samp> paragraphs (to match how program output
+      actually appears on-screen)
+    */
+    padding-left: inherit;
+    text-indent: inherit;
+  }
 }
