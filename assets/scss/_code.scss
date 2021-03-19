@@ -40,6 +40,17 @@ pre,
     margin-bottom: 0;
   }
 
+  /*
+    Format <pre> element in console block, for example:
+
+    /blog/jjameson/2009/01/15/sharepoint-configuration-wizard-hangs-with-ipv6-address/
+  */
+  pre {
+    margin: 0;
+    padding: 0;
+    border: none;
+  }
+
   samp p {
     /*
       Remove hanging indent for <samp> paragraphs (to match how program output
