@@ -59,6 +59,17 @@ blockquote {
   background-color: rgba($accent2-color, 0.1);
   border: 0.1rem solid rgba($accent2-color, 0.7);
   border-left-width: 0.5rem;
+
+  /*
+    Format nested blockquote, for example:
+
+    /blog/jjameson/2009/01/15/sharepoint-configuration-wizard-hangs-with-ipv6-address/
+  */
+  blockquote {
+    background-color: $blockquote-bg-color;
+    border: none;
+    border-left: 0.5rem solid $blockquote-border-color;
+  }
 }
 
 .warning blockquote {
