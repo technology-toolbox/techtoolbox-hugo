@@ -3,7 +3,7 @@
 <ul class="nav flex-column">
     {{ with .Next }}
     <li class="nav-item">
-        <a class="nav-link" href="{{ .Permalink }}">
+        <a class="nav-link" href="{{ .RelPermalink }}">
             {{ .Title }}
             <span class="badge bg-secondary">Next</span>
         </a>
@@ -11,7 +11,7 @@
     {{ end }}
     {{ with .Prev }}
     <li class="nav-item">
-        <a class="nav-link" href="{{ .Permalink }}">
+        <a class="nav-link" href="{{ .RelPermalink }}">
             {{ .Title }}
             <span class="badge bg-secondary">Previous</span>
         </a>
