@@ -3,3 +3,8 @@ table caption {
   font-weight: 700;
   text-align: center;
 }
+
+thead.table-primary {
+  --bs-table-bg: #{$primary};
+  color: $light;
+}
