@@ -30,11 +30,6 @@ ol > li > ol > li > ol > li {
     counter-increment: h1;
   }
 
-  .appendix h1:before {
-    content: none;
-    counter-increment: none;
-  }
-
   h1 {
     background: 0 0;
     border-bottom: 1px #c8d7eb solid;
@@ -55,5 +50,22 @@ ol > li > ol > li > ol > li {
   h3:before {
     content: counter(h1) "." counter(h2) "." counter(h3) " ";
     counter-increment: h3;
+  }
+}
+
+.no-numbered-headings {
+  h1:before {
+    content: none;
+    counter-increment: none;
+  }
+
+  h2:before {
+    content: none;
+    counter-increment: none;
+  }
+
+  h3:before {
+    content: none;
+    counter-increment: none;
   }
 }
