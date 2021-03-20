@@ -1,19 +1,19 @@
 <header>
   {{- partial "navbar.html" . -}}
 
-  {{ if not .IsHome }}
-    {{$blogSections := slice "blog" "categories" "tags" }}
-    {{ if in $blogSections .Section }}
-      {{$blogHomePage := .Site.GetPage "section" "blog/jjameson" }}
+  {{- if not .IsHome -}}
+    {{- $blogSections := slice "blog" "categories" "tags" -}}
+    {{- if in $blogSections .Section -}}
+      {{- $blogHomePage := .Site.GetPage "section" "blog/jjameson" -}}
       <h1>{{ $blogHomePage.Title }}</h1>
-    {{ else }}
+    {{- else -}}
       <h1>{{ .Title }}</h1>
-    {{ end }}
+    {{- end -}}
 
-    {{ if in $blogSections .Section }}
+    {{- if in $blogSections .Section -}}
       {{- partial "blog-breadcrumb.html" . -}}
-    {{ else }}
+    {{- else -}}
       {{- partial "breadcrumb.html" . -}}
-    {{ end }}
-  {{ end }}
+    {{- end -}}
+  {{- end -}}
 </header>

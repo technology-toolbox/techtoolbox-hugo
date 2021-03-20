@@ -42,14 +42,15 @@
     {{- end -}}
   {{- end -}}
   {{- if $includePageInBreadcrumb -}}
-    {{- if eq .p1 .p2 -}}
+    {{ if eq .p1 .p2 }}
       <li class="breadcrumb-item active" aria-current="page">
         {{ .p1.Title }}
       </li>
-    {{- else -}}
+    {{ else }}
       <li class="breadcrumb-item">
-        <a class="text-decoration-none"
-          href="{{ .p1.RelPermalink }}">{{ .p1.Title }}</a>
+        <a class="text-decoration-none" href="{{ .p1.RelPermalink }}">
+          {{ .p1.Title }}
+        </a>
       </li>
     {{- end -}}
   {{- end -}}

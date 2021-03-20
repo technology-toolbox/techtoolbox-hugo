@@ -1,26 +1,24 @@
 {{ define "main" }}
 <section>
   <div class="row">
+
     <main class="col-lg-8">
       <h2>{{ .Title }}</h2>
-
-      {{- partial "post-info.html" . -}}
-
+      {{ partial "post-info.html" . }}
       <article id="content">
-        {{- partial "msdn-blog-post-info.html" . -}}
+        {{ partial "msdn-blog-post-info.html" . }}
         {{ .Content }}
       </article>
-
-      {{- partial "post-tags.html" . -}}
-      {{- partial "post-attachment.html" . -}}
-      {{- partial "post-navigation.html" . -}}
+      {{ partial "post-tags.html" . }}
+      {{ partial "post-attachment.html" . }}
+      {{ partial "post-navigation.html" . }}
     </main>
 
     <aside class="col-lg-4">
-      {{- partial "recent-post-list.html" . -}}
-      {{- partial "blog-tags.html" . -}}
-      {{- partial "blog-categories.html" . -}}
-      {{- partial "blog-archives.html" . -}}
+      {{ partial "recent-post-list.html" . }}
+      {{ partial "blog-tags.html" . }}
+      {{ partial "blog-categories.html" . }}
+      {{ partial "blog-archives.html" . }}
     </aside><!-- /.col-lg-4 -->
 
   </div><!-- /.row -->

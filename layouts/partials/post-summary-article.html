@@ -8,7 +8,7 @@
             <span class="label d-none">at</span>
             <span class="value">{{ .PublishDate.Format "3:04 PM" }}</span>
         </div>
-        {{- partial "author-vcard.html" . -}}
+        {{ partial "author-vcard.html" . }}
     </div>
     <p>{{ with .Params.excerpt }}{{ . }}{{ else }}{{ with .Summary }}{{ . }}{{ end }}{{ end }}</p>
 </article>
