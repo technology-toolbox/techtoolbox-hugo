@@ -72,8 +72,13 @@ blockquote {
   }
 }
 
+.errorMessage blockquote,
 .warning blockquote {
   background-color: rgba($danger, 0.2);
   border: 0.1rem solid $danger;
   border-left-width: 0.5rem;
+}
+
+.errorMessage blockquote {
+  font-style: italic;
 }
