@@ -1,0 +1,6 @@
+{{- $isDraft := .Params.draft | default false -}}
+{{- if $isDraft -}}
+<div class="alert alert-warning mb-0" role="alert">
+    <strong>Status:</strong> Draft
+</div>
+{{- end -}}
