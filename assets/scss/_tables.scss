@@ -8,3 +8,15 @@ thead.table-primary {
   --bs-table-bg: #{$primary};
   color: $light;
 }
+
+table.constrainedTable {
+  table-layout: fixed;
+  width: 100%;
+
+  td {
+    overflow: hidden;
+    -o-text-overflow: ellipsis;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+}
