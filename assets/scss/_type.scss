@@ -87,3 +87,20 @@ blockquote {
   border: 0.1rem solid $warning;
   border-left-width: 0.5rem;
 }
+
+// "Conversation"
+//
+// Example:
+// https://www.technologytoolbox.com/blog/jjameson/2009/03/31/updated-thoughts-on-wspbuilder
+.conversation {
+  ol {
+    li {
+      list-style: none;
+
+      cite {
+        color: $primary;
+        font-weight: 500;
+      }
+    }
+  }
+}
