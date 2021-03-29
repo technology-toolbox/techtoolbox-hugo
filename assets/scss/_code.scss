@@ -6,7 +6,8 @@ kbd {
 // Blocks of code, console blocks, and excerpts from various logs
 pre,
 .consoleBlock,
-.logExcerpt {
+.logExcerpt,
+.sampleOutput {
   background-color: $light;
   border: 1px solid $secondary;
   cursor: text;
@@ -58,5 +59,14 @@ pre,
     */
     padding-left: inherit;
     text-indent: inherit;
+  }
+
+  .sampleOutput {
+    /*
+      Remove border, margin, and padding from sample output in console blocks
+    */
+    border: none;
+    margin: 0;
+    padding: 0;
   }
 }
