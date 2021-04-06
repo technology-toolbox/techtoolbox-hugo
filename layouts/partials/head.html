@@ -15,4 +15,6 @@
     {{ "<!-- Custom styles for this template -->" | safeHTML }}
     <link href="{{ . }}" rel="stylesheet">
     {{- end }}
+
+    {{ template "_internal/google_analytics.html" . }}
 </head>
