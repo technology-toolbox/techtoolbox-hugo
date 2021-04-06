@@ -1,7 +1,39 @@
-{{ if or .Next .Prev }}
+{{- $nextPost := default nil -}}
+{{- $previousPost := default nil -}}
+<!-- Use .Next and .Prev whenever possible -->
+{{- with .Next -}}
+    {{- if eq .Section "blog" -}}
+        {{- $nextPost = . -}}
+    {{- end -}}
+{{- end -}}
+{{- with .Prev -}}
+{{- if eq .Section "blog" -}}
+        {{- $previousPost = . -}}
+    {{- end -}}
+{{- end -}}
+<!--
+    If "next" or "previous" post is not set (e.g. because .Next or .Prev is not
+    a blog post), then try to find "next" and "previous" posts by iterating
+    through all blog posts
+-->
+{{- if or (not $nextPost) (not $previousPost) -}}
+    {{- $foundCurrentPost := false -}}
+    {{- range where .Site.Pages "Section" "blog" -}}
+        {{- if eq .Permalink $.Permalink -}}
+            {{- $foundCurrentPost = true -}}
+        {{- else if .IsPage -}} <!-- ignore section pages -->
+            {{- if not $foundCurrentPost -}}
+                {{- $nextPost = . -}}
+            {{- else if not $previousPost -}}
+                {{- $previousPost = . -}}
+            {{- end -}}
+        {{- end -}}
+    {{- end -}}
+{{- end -}}
+{{- if or $nextPost $previousPost -}}
 <h3>Other Posts</h3>
 <ul class="nav flex-column">
-    {{ with .Next }}
+    {{ with $nextPost }}
     <li class="nav-item">
         <a class="nav-link" href="{{ .RelPermalink }}">
             {{ .Title }}
@@ -9,7 +41,7 @@
         </a>
     </li>
     {{ end }}
-    {{ with .Prev }}
+    {{ with $previousPost }}
     <li class="nav-item">
         <a class="nav-link" href="{{ .RelPermalink }}">
             {{ .Title }}
@@ -18,4 +50,4 @@
     </li>
     {{ end }}
 </ul>
-{{ end }}
+{{- end -}}
