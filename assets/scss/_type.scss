@@ -50,9 +50,8 @@ blockquote {
 
 .important blockquote {
   background-color: rgba($blockquote-bg-color, 0.7);
-  border-width: 0;
+  border: 0.1rem solid $primary;
   border-left-width: 0.5rem;
-  border-left-color: $primary;
 }
 
 .update blockquote {
