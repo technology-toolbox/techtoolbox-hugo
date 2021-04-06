@@ -23,10 +23,12 @@
         </li>
         {{ end }}
       </ul>
-      <form class="d-flex" action="/search/" method="GET">
-        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" name="q">
-        <button class="btn btn-outline-primary" type="submit">Search</button>
-      </form>
+      {{ if not (hasPrefix .File.Dir "search") }}
+        <form class="d-flex" action="/search/" method="GET">
+          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" name="q">
+          <button class="btn btn-outline-primary" type="submit">Search</button>
+        </form>
+      {{ end }}
     </div>
   </div>
 </nav>
