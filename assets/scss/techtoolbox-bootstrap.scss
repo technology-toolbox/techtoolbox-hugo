@@ -87,3 +87,6 @@ $blockquote-border-color: $accent1-color;
 @import "placeholder";
 @import "tables";
 @import "type";
+
+// Code syntax highlighting (via Chroma)
+@import "code-syntax";
