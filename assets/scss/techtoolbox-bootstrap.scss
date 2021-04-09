@@ -90,3 +90,26 @@ $blockquote-border-color: $accent1-color;
 
 // Code syntax highlighting (via Chroma)
 @import "code-syntax";
+
+/*
+    There are numerous instances where Chroma incorrectly designates parts of
+    code as "errors", for example:
+
+        https://github.com/technology-toolbox/website/issues/4
+        https://github.com/technology-toolbox/website/issues/23
+
+    The long term solution to these issues is to fix the lexer implementations
+    in Chroma and then wait for a Hugo release that incorporates the new
+    version(s) of Chroma. However, that could take quite some time.
+
+    The short term solution (i.e. "hack") is simply to make the "errors" much
+    less pronounced (e.g. by overriding the dark background color specified in
+    the "Monokai Light" color scheme).
+
+    Another possible fix would be to modify the Hugo-generated HTML to replace
+    code mistakenly marked as "err" -- but Hugo does not currently make this
+    easy (see https://github.com/gohugoio/hugo/issues/6702).
+*/
+.chroma .err {
+  background-color: inherit;
+}
