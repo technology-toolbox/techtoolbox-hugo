@@ -6,3 +6,17 @@
 .navbar-light .navbar-nav .nav-link {
   color: $link-color;
 }
+
+a.navbar-brand {
+  max-width: 200px;
+
+  img {
+    width: 100%;
+  }
+}
+
+@media (min-width: 576px) {
+  a.navbar-brand {
+    max-width: 220px;
+  }
+}
