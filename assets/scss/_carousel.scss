@@ -7,14 +7,7 @@
     margin: 0.5rem 0 1rem;
   }
 
-  /*
-    Use a large right margin to avoid issues where caption text can run right up
-    next to the "Learn more" button
-  */
-  p {
-    margin-right: 9rem;
-  }
   p.float-end {
-    margin-right: 0;
+    margin-left: 1rem;
   }
 }
