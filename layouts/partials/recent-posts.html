@@ -4,7 +4,10 @@
     {{ range first 3 (where .Site.RegularPages.ByPublishDate.Reverse "Section" "blog") }}
     <a href="{{ .RelPermalink }}" class="list-group-item list-group-item-action">
       <article>
-        <h3>{{ .Title }}</h3>
+        <h3>
+          <i class="bi bi-file-earmark-text"></i>
+          {{ .Title }}
+        </h3>
         <div class="post-info small text-muted">
             <div class="published">
                 <span class="label d-none">Published</span>

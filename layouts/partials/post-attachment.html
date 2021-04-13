@@ -2,7 +2,10 @@
 <div class="attachment">
   <h3>Attachment</h3>
   <p>
-    <a href="{{ .url }}">{{ .fileName }}</a>
+    <a href="{{ .url }}">
+      <i class="bi bi-paperclip"></i>
+      {{ .fileName }}
+    </a>
     <span class="file-size"> ({{ template "human-readable-byte-size" .fileSizeInBytes }})</span>
   </p>
 </div>
