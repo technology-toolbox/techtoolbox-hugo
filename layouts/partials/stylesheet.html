@@ -12,3 +12,6 @@
   {{- $style = $style | postCSS | fingerprint -}}
 {{- end }}
 <link rel="stylesheet" href="{{ $style.Permalink | relURL }}">
+
+<link rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css">

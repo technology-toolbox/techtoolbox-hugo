@@ -2,7 +2,9 @@
 <h3>Tags</h3>
 <nav class="nav">
   {{ range .Params.tags }}
-    <a class="nav-link" href="{{ relURL (print "/tags/" . | urlize) }}">{{ . }}</a>
+    <a class="nav-link" href="{{ relURL (print "/tags/" . | urlize) }}">
+      <i class="bi bi-tag"></i> {{ . }}
+    </a>
   {{ end }}
 </nav>
 {{ end }}
