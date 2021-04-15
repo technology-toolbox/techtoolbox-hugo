@@ -12,6 +12,9 @@
       {{ partial "post-tags.html" . }}
       {{ partial "post-attachment.html" . }}
       {{ partial "post-navigation.html" . }}
+
+      <h3>Comments</h3>
+      {{ template "_internal/disqus.html" . }}
     </main>
 
     <aside class="col-lg-4">
