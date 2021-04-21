@@ -88,6 +88,9 @@ $blockquote-border-color: $accent1-color;
 @import "tables";
 @import "type";
 
+// Overrides for Commento (https://commento.io)
+@import "commento";
+
 // Code syntax highlighting (via Chroma)
 @import "code-syntax";
 
