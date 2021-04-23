@@ -4,6 +4,10 @@ body {
   padding-bottom: 1rem;
 }
 
+body.min-width-lg {
+  min-width: 960px;
+}
+
 aside {
   margin-bottom: 1.5rem;
 }
