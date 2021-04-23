@@ -2,12 +2,12 @@
 {{- $previousPost := default nil -}}
 <!-- Use .Next and .Prev whenever possible -->
 {{- with .Next -}}
-    {{- if and (eq .Section "blog") (ne .Params.layout "popout") -}}
+    {{- if eq .Section "blog" -}}
         {{- $nextPost = . -}}
     {{- end -}}
 {{- end -}}
 {{- with .Prev -}}
-{{- if and (eq .Section "blog") (ne .Params.layout "popout") -}}
+{{- if eq .Section "blog" -}}
         {{- $previousPost = . -}}
     {{- end -}}
 {{- end -}}
@@ -18,10 +18,10 @@
 -->
 {{- if or (not $nextPost) (not $previousPost) -}}
     {{- $foundCurrentPost := false -}}
-    {{- range where (where .Site.Pages "Section" "blog") ".Params.layout" "!=" "popout" -}}
+    {{- range where .Site.Pages "Section" "blog" -}}
         {{- if eq .Permalink $.Permalink -}}
             {{- $foundCurrentPost = true -}}
-        {{- else if or (.IsPage) (eq .Params.layout "single") -}} <!-- ignore section pages -->
+        {{- else if .IsPage -}} <!-- ignore section pages -->
             {{- if not $foundCurrentPost -}}
                 {{- $nextPost = . -}}
             {{- else if not $previousPost -}}
