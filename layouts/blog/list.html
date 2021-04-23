@@ -2,7 +2,7 @@
 <section>
   <div class="row">
     <main class="col-lg-8">
-      {{ $paginator := .Paginate .RegularPagesRecursive }}
+      {{ $paginator := .Paginate (where .RegularPagesRecursive ".Params.layout" "!=" "popout") }}
       {{ $isBlogHomePage := false }}
       {{ with .File }}{{ $isBlogHomePage = (eq .Dir "blog\\jjameson\\") }}{{ end }}
       {{ if $isBlogHomePage }}
