@@ -2,7 +2,9 @@
 <html lang="{{ .Site.LanguageCode }}">
     {{- partial "head.html" . -}}
     <body class="container-md">
+        {{- block "header" . -}}
         {{- partial "header.html" . -}}
+        {{- end -}}
 
         <div class="main-footer-wrapper">
         {{- block "main" . }}{{- end }}
