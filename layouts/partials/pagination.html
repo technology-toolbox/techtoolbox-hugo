@@ -1,88 +1,88 @@
-{{ $paginator := .Paginator }}
+{{- $paginator := .Paginator -}}
 
-{{ $adjacent_links := 1 }}
+{{- $adjacent_links := 1 -}}
 
-{{ $lower_gap := add $adjacent_links 3 }}
+{{- $lower_gap := add $adjacent_links 3 -}}
 
-{{ $upper_gap := sub $paginator.TotalPages (add $adjacent_links 2) }}
+{{- $upper_gap := sub $paginator.TotalPages (add $adjacent_links 2) -}}
 
-{{ $lower :=  (sub $paginator.PageNumber $adjacent_links) }}
+{{- $lower :=  (sub $paginator.PageNumber $adjacent_links) -}}
 
-{{ $upper :=  (add $paginator.PageNumber $adjacent_links) }}
+{{- $upper :=  (add $paginator.PageNumber $adjacent_links) -}}
 
-{{ $min_links := (add (mul $adjacent_links 2) 3) }}
+{{- $min_links := (add (mul $adjacent_links 2) 3) -}}
 
 {{ if gt $paginator.TotalPages 1 }}
   <ul class="pagination">
-    {{ if $paginator.HasPrev }}
+    {{- if $paginator.HasPrev -}}
       <li class="page-item d-none d-sm-block">
         <a class="page-link" href="{{ $paginator.Prev.URL }}"
           aria-label="Previous">
           <span aria-hidden="true">&laquo;</span>
         </a>
       </li>
-    {{ end }}
+    {{- end -}}
 
-    {{ range $paginator.Pagers }}
+    {{- range $paginator.Pagers -}}
 
-      {{ if gt $paginator.TotalPages $min_links }}
+      {{- if gt $paginator.TotalPages $min_links -}}
 
-        {{ $.Scratch.Set "page_number_flag" false }}
+        {{- $.Scratch.Set "page_number_flag" false -}}
 
-        {{ if eq .PageNumber 1 }}
-          {{ $.Scratch.Set "page_number_flag" true }}
-        {{ end }}
+        {{- if eq .PageNumber 1 -}}
+          {{- $.Scratch.Set "page_number_flag" true -}}
+        {{- end -}}
 
-        {{ if eq .PageNumber 2 }}
-          {{ if gt $paginator.PageNumber $lower_gap }}
+        {{- if eq .PageNumber 2 -}}
+          {{- if gt $paginator.PageNumber $lower_gap -}}
             <li class="page-item disabled">
               <span aria-hidden="true">&nbsp;...&nbsp;</span>
             </li>
-          {{ else if eq $paginator.PageNumber $lower_gap }}
-            {{ $.Scratch.Set "page_number_flag" true }}
-          {{ end }}
-        {{ end }}
+          {{- else if eq $paginator.PageNumber $lower_gap -}}
+            {{- $.Scratch.Set "page_number_flag" true -}}
+          {{- end -}}
+        {{- end -}}
 
-        {{ if and (ge .PageNumber $lower) (le .PageNumber $upper) }}
-          {{ $.Scratch.Set "page_number_flag" true }}
-        {{ end }}
+        {{- if and (ge .PageNumber $lower) (le .PageNumber $upper) -}}
+          {{- $.Scratch.Set "page_number_flag" true -}}
+        {{- end -}}
 
-        {{ if eq .PageNumber (sub $paginator.TotalPages 1) }}
-          {{ if lt $paginator.PageNumber $upper_gap }}
+        {{- if eq .PageNumber (sub $paginator.TotalPages 1) -}}
+          {{- if lt $paginator.PageNumber $upper_gap -}}
             <li class="page-item disabled">
               <span aria-hidden="true">&nbsp;...&nbsp;</span>
             </li>
-          {{ else if eq $paginator.PageNumber $upper_gap }}
-            {{ $.Scratch.Set "page_number_flag" true }}
-          {{ end }}
-        {{ end }}
+          {{- else if eq $paginator.PageNumber $upper_gap -}}
+            {{- $.Scratch.Set "page_number_flag" true -}}
+          {{- end -}}
+        {{- end -}}
 
-        {{ if eq .PageNumber $paginator.TotalPages }}
-          {{ $.Scratch.Set "page_number_flag" true }}
-        {{ end }}
+        {{- if eq .PageNumber $paginator.TotalPages -}}
+          {{- $.Scratch.Set "page_number_flag" true -}}
+        {{- end -}}
 
-      {{ else }}
+      {{- else -}}
 
-        {{ $.Scratch.Set "page_number_flag" true }}
+        {{- $.Scratch.Set "page_number_flag" true -}}
 
-      {{ end }}
+      {{- end -}}
 
       <!-- Output page numbers. -->
-      {{ if eq ($.Scratch.Get "page_number_flag") true }}
+      {{- if eq ($.Scratch.Get "page_number_flag") true -}}
         <li class="page-item{{ if eq . $paginator }} active{{ end }}">
-          <a class="page-link" href="{{ .URL }}">{{ .PageNumber }}</a>
+          <a class="page-link" href="{{ .URL }}">{{- .PageNumber -}}</a>
         </li>
-      {{ end }}
+      {{- end -}}
 
-    {{ end }}
+    {{- end -}}
 
-    {{ if $paginator.HasNext }}
+    {{- if $paginator.HasNext -}}
       <li class="page-item d-none d-sm-block">
         <a class="page-link" href="{{ $paginator.Next.URL }}" aria-label="Next">
           <span aria-hidden="true">&raquo;</span>
         </a>
       </li>
-    {{ end }}
+    {{- end -}}
 
   </ul>
 {{ end }}
