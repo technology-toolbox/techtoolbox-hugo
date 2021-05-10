@@ -23,7 +23,7 @@
         {{ end }}
       </ul>
       <ul class="navbar-nav me-end mb-2 mb-lg-0">
-        {{ with .Site.Params.twitterId }}
+        {{ with .Site.Social.twitter }}
         <li class="nav-item me-lg-1 ms-lg-1">
           <a class="nav-link" href="https://twitter.com/{{ . }}"
             target="_blank">
@@ -31,7 +31,7 @@
           </a>
         </li>
         {{ end }}
-        {{ with .Site.Params.gitHubId }}
+        {{ with .Site.Social.github }}
         <li class="nav-item me-lg-1 ms-lg-1">
           <a class="nav-link" href="https://github.com/{{ . }}"
             target="_blank">
