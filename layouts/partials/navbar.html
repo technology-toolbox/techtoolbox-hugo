@@ -11,13 +11,31 @@
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+      <ul class="navbar-nav me-auto">
         {{ range .Site.Menus.main }}
         <li class="nav-item">
           <a class="nav-link" href="{{ .URL }}">
             {{- .Pre -}}
             <span>{{ .Name }}</span>
             {{- .Post -}}
+          </a>
+        </li>
+        {{ end }}
+      </ul>
+      <ul class="navbar-nav me-end mb-2 mb-lg-0">
+        {{ with .Site.Params.twitterId }}
+        <li class="nav-item me-lg-1 ms-lg-1">
+          <a class="nav-link" href="https://twitter.com/{{ . }}"
+            target="_blank">
+            <i class="bi bi-twitter"></i> <span class="d-lg-none">Twitter</span>
+          </a>
+        </li>
+        {{ end }}
+        {{ with .Site.Params.gitHubId }}
+        <li class="nav-item me-lg-1 ms-lg-1">
+          <a class="nav-link" href="https://github.com/{{ . }}"
+            target="_blank">
+            <i class="bi bi-github"></i> <span class="d-lg-none">GitHub</span>
           </a>
         </li>
         {{ end }}
