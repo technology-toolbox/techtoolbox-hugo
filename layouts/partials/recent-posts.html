@@ -17,7 +17,7 @@
             </div>
             {{ partial "author-vcard.html" . }}
         </div>
-        <p>{{ with .Params.excerpt }}{{ . }}{{ else }}{{ with .Summary }}{{ . }}{{ end }}{{ end }}</p>
+        <p>{{ with .Params.description }}{{ . }}{{ else }}{{ with .Summary }}{{ . }}{{ end }}{{ end }}</p>
     </article>
     </a>
     {{ end }}
