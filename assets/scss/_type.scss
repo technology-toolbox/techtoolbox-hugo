@@ -1,4 +1,6 @@
-h1 {
+// Use child combinator (>) on <h1> elements to avoid formatting issues in
+// blog post comments (https://github.com/technology-toolbox/website/issues/88)
+header > h1 {
   background: #77c856 url(/img/bg-h1-accent1-1000x150.png) no-repeat;
   color: #fff;
   margin-bottom: 0;
