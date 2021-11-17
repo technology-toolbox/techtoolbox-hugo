@@ -105,3 +105,21 @@ blockquote {
     }
   }
 }
+
+// Bootstrap icons (rendered using inline SVG)
+.svg-icon {
+  display: inline-block;
+  fill: currentColor;
+  width: 1em;
+  height: 1em;
+}
+
+// HACK: Switching from Bootstrap icon font to inline SVG results in the Twitter
+// and GitHub icons no longer aligning with the middle of the corresponding
+// text in the navigation items (i.e. the centers of the icons are a few pixels
+// below the middle of the text). Add a bottom margin to force the icons to
+// align vertically in the middle (since "vertical-align: middle;" doesn't quite
+// work as expected).
+.nav-item svg.svg-icon {
+  margin-bottom: 4px;
+}

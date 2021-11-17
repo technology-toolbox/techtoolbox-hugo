@@ -29,7 +29,8 @@
         <li class="nav-item me-lg-1 ms-lg-1">
           <a class="nav-link" href="https://twitter.com/{{ . }}"
             rel="noopener" target="_blank" title="Follow on Twitter">
-            <i class="bi bi-twitter"></i> <span class="d-lg-none">Twitter</span>
+            {{ partial "svg-icon" "twitter" }}
+            <span class="d-lg-none">Twitter</span>
           </a>
         </li>
         {{ end }}
@@ -37,7 +38,8 @@
         <li class="nav-item me-lg-1 ms-lg-1">
           <a class="nav-link" href="https://github.com/{{ . }}"
             rel="noopener" target="_blank" title="Follow on GitHub">
-            <i class="bi bi-github"></i> <span class="d-lg-none">GitHub</span>
+            {{ partial "svg-icon" "github" }}
+            <span class="d-lg-none">GitHub</span>
           </a>
         </li>
         {{ end }}
