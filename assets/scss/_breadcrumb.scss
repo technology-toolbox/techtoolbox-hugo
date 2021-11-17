@@ -1,3 +1,10 @@
 .breadcrumb {
   background-color: $light;
 }
+
+.breadcrumb-item {
+  a,
+  &.active {
+    color: $dark;
+  }
+}
