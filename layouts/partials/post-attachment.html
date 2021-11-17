@@ -3,7 +3,7 @@
   <h3>Attachment</h3>
   <p>
     <a href="{{ .url }}">
-      <i class="bi bi-paperclip"></i>
+      {{ partial "svg-icon" "paperclip" }}
       {{ .fileName }}
     </a>
     <span class="file-size"> ({{ template "human-readable-byte-size" .fileSizeInBytes }})</span>
