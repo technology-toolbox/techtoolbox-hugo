@@ -1,0 +1,2 @@
+{{ $svg := resources.Get (print "svg-icons/" . ".svg") }}
+{{ $svg.Content | htmlUnescape | safeHTML }}
