@@ -3,7 +3,7 @@
 <nav class="nav">
   {{ range .Params.tags }}
     <a class="nav-link" href="{{ relURL (print "/tags/" . | urlize) }}">
-      <i class="bi bi-tag"></i> {{ . }}
+      {{ partial "svg-icon" "tag" }} {{ . }}
     </a>
   {{ end }}
 </nav>
