@@ -1,15 +1,9 @@
-<script>
-    function makeImageResponsive(element) {
-        element.className += 'img-fluid';
-    }
+{{- $buildOptions := dict "targetPath" "assets/js/techtoolbox.js" -}}
 
-    document.addEventListener('DOMContentLoaded', function () {
-        var images = document.querySelectorAll('figure img, .navbar-brand img')
-        if (images) {
-            images.forEach(makeImageResponsive);
-        }
-    })
-</script>
+{{- $themeScript := resources.Get "scripts/main.js" | js.Build $buildOptions -}}
+<script
+    type="text/javascript"
+    src="{{ $themeScript.RelPermalink }}"></script>
 
 <!-- Scripts for Bootstrap -->
 <script
@@ -17,6 +11,7 @@
     integrity="sha512-pax4MlgXjHEPfCwcJLQhigY7+N8rt6bVvWLFyUMuxShv170X53TRzGPmPkZmGBhk+jikR8WBM4yl7A9WMHHqvg=="
     crossorigin="anonymous"
     referrerpolicy="no-referrer"></script>
+
 <!-- Scripts for placeholder images -->
 <script
     src="https://cdnjs.cloudflare.com/ajax/libs/holder/2.9.7/holder.min.js"
