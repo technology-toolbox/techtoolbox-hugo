@@ -1,6 +1,15 @@
 {{ with .Site.GoogleAnalytics -}}
     {{ $trackingCode := . }}
-    {{- $js := resources.Get "scripts/googleAnalytics.js" | js.Build (dict "params" (dict "trackingCode" $trackingCode )) }}
+    {{- $buildOptions := (dict "params" (dict "trackingCode" $trackingCode )) -}}
+    {{- $buildOptions = merge $buildOptions (dict "targetPath" "assets/js/googleAnalytics.js") -}}
+
+    {{- if eq hugo.Environment "production" -}}
+        {{- $buildOptions = merge $buildOptions (dict "minify" true) -}}
+    {{- else -}}
+        {{- $buildOptions = merge $buildOptions (dict "sourceMap" "inline") -}}
+    {{- end -}}
+
+    {{- $js := resources.Get "scripts/googleAnalytics.js" | js.Build $buildOptions }}
     <script async src="https://www.googletagmanager.com/gtag/js?id={{ $trackingCode }}"></script>
     <script src="{{ $js.RelPermalink }}"></script>
 {{- end }}
