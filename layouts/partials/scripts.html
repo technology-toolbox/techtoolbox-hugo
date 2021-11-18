@@ -7,9 +7,17 @@
 {{- end -}}
 
 {{- $themeScript := resources.Get "scripts/main.js" | js.Build $buildOptions -}}
-<script
-    type="text/javascript"
-    src="{{ $themeScript.RelPermalink }}"></script>
+{{- if eq hugo.Environment "production" -}}
+    {{- $themeScript = $themeScript | resources.Fingerprint "sha512" -}}
+    <script
+        type="text/javascript"
+        src="{{ $themeScript.RelPermalink }}"
+        integrity="{{ $themeScript.Data.Integrity }}"></script>
+{{- else -}}
+    <script
+        type="text/javascript"
+        src="{{ $themeScript.RelPermalink }}"></script>
+{{- end -}}
 
 <!-- Scripts for Bootstrap -->
 <script
