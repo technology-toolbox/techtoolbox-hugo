@@ -1,0 +1,6 @@
+{{ with .Site.GoogleAnalytics -}}
+    {{ $trackingCode := . }}
+    {{- $js := resources.Get "scripts/googleAnalytics.js" | js.Build (dict "params" (dict "trackingCode" $trackingCode )) }}
+    <script async src="https://www.googletagmanager.com/gtag/js?id={{ $trackingCode }}"></script>
+    <script src="{{ $js.RelPermalink }}"></script>
+{{- end }}
