@@ -12,6 +12,13 @@
   {{- end -}}
   {{- $includePageInBreadcrumb := true -}}
   <!--
+    Exclude superfluous "/blog/jjameson/" link from the breadcrumb (since the
+    "/blog/" breadcrumb link will redirect the user to that location)
+  -->
+  {{- if eq .p1.RelPermalink "/blog/jjameson/" -}}
+    {{- $includePageInBreadcrumb = false -}}
+  {{- end -}}
+  <!--
     Remove year/month/day links from individual blog posts
     For example, consider the following relative URL:
 
