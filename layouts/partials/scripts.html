@@ -1,5 +1,11 @@
 {{- $buildOptions := dict "targetPath" "assets/js/techtoolbox.js" -}}
 
+{{- if eq hugo.Environment "production" -}}
+  {{- $buildOptions = merge $buildOptions (dict "minify" true) -}}
+{{- else -}}
+  {{- $buildOptions = merge $buildOptions (dict "sourceMap" "inline") -}}
+{{- end -}}
+
 {{- $themeScript := resources.Get "scripts/main.js" | js.Build $buildOptions -}}
 <script
     type="text/javascript"
