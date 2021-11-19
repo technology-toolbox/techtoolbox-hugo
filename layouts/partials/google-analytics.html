@@ -11,5 +11,13 @@
 
     {{- $js := resources.Get "scripts/googleAnalytics.js" | js.Build $buildOptions }}
     <script async src="https://www.googletagmanager.com/gtag/js?id={{ $trackingCode }}"></script>
-    <script src="{{ $js.RelPermalink }}"></script>
+    {{ if eq hugo.Environment "production" -}}
+        {{- $js = $js | resources.Fingerprint "sha512" -}}
+        <script
+            type="text/javascript"
+            src="{{ $js.RelPermalink }}"
+            integrity="{{ $js.Data.Integrity }}"></script>
+    {{- else -}}
+        <script src="{{ $js.RelPermalink }}"></script>
+    {{- end -}}
 {{- end }}
