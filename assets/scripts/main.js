@@ -3,7 +3,7 @@ function makeImageResponsive(element) {
 }
 
 document.addEventListener("DOMContentLoaded", function () {
-  var images = document.querySelectorAll("figure img, .navbar-brand img");
+  var images = document.querySelectorAll("figure img");
   if (images) {
     images.forEach(makeImageResponsive);
   }
