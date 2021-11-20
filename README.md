@@ -4,19 +4,7 @@ This repository contains the [Hugo](https://gohugo.io) theme used for the
 Technology Toolbox website:
 [https://www.technologytoolbox.com](https://www.technologytoolbox.com).
 
-## Sample screenshots
-
-### Home page (desktop)
-
-![Home page (desktop)](https://assets.technologytoolbox.com/website/img/theme-screenshots/home-desktop.png)
-
-### Home page (tablet)
-
-![Home page (tablet)](https://assets.technologytoolbox.com/website/img/theme-screenshots/home-tablet.png)
-
-### Home page (phone)
-
-![Home page (phone)](https://assets.technologytoolbox.com/website/img/theme-screenshots/home-phone.png)
+![Technology Toolbox responsive website](https://assets.technologytoolbox.com/website/img/theme-screenshots/responsive-website-2300x1400.jpg)
 
 ## Features
 
