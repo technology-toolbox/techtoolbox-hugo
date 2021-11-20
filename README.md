@@ -24,12 +24,12 @@ Technology Toolbox website:
 
 ## Installation
 
+> **Important:** This theme requires
+> [installing the "extended" version of Hugo](https://gohugo.io/getting-started/installing/)
+> in order to compile Sass/SCSS.
+
 1. If you are using Hugo for the first time, complete the Hugo
    [Quick Start](https://gohugo.io/getting-started/quick-start/) first.
-
-   > Important: This theme requires
-   > [installing the "extended" version of Hugo](https://gohugo.io/getting-started/installing/)
-   > in order to compile Sass/SCSS.
 
 1. Copy the theme to your website (or, better yet, clone the
    [repository for the Technology Toolbox website](https://github.com/technology-toolbox/website)
@@ -65,12 +65,6 @@ Technology Toolbox website:
 
    ```Shell
    hugo server
-   ```
-
-   or
-
-   ```Shell
-   npm start
    ```
 
 1. Browse the website: [http://localhost:1313/](http://localhost:1313/)
@@ -131,10 +125,10 @@ please use the
 [issues list](https://github.com/technology-toolbox/techtoolbox-hugo/issues).
 
 If you would like to contribute, please
-[fork the repository](https://github.com/technology-toolbox/techtoolbox-hugo/fork) and make
-the changes in a feature branch.
-[Pull requests](https://github.com/technology-toolbox/website/pulls) are
-welcome!
+[fork the repository](https://github.com/technology-toolbox/techtoolbox-hugo/fork)
+and make the changes in a feature branch.
+[Pull requests](https://github.com/technology-toolbox/techtoolbox-hugo/pulls)
+are welcome!
 
 ## License
 
