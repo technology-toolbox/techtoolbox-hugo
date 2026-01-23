@@ -2,7 +2,7 @@
 
 This repository contains the [Hugo](https://gohugo.io) theme used for the
 Technology Toolbox website:
-[https://www.technologytoolbox.com](https://www.technologytoolbox.com).
+[https://www.techtoolbox.us](https://www.techtoolbox.us).
 
 ![Technology Toolbox responsive website](https://assets.technologytoolbox.com/website/img/theme-screenshots/responsive-website-2300x1400.jpg)
 
@@ -74,7 +74,7 @@ Technology Toolbox website:
 **config.toml**
 
 ```TOML
-baseURL = "https://www.technologytoolbox.com/"
+baseURL = "https://www.techtoolbox.us/"
 languageCode = "en-us"
 title = "Technology Toolbox"
 theme = "techtoolbox-hugo"
