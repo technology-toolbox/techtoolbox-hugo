@@ -95,19 +95,19 @@ googleAnalytics = "UA-12345678-1"
   [[menu.main]]
     identifier = "services"
     name = "Services"
-    url = "/services"
+    url = "/services/"
     weight = 10
 
   [[menu.main]]
     identifier = "company"
     name = "Company"
-    url = "/company"
+    url = "/company/"
     weight = 20
 
   [[menu.main]]
     identifier = "blog"
     name = "Blog"
-    url = "/blog/jjameson"
+    url = "/blog/jjameson/"
     weight = 30
 
 [permalinks]
