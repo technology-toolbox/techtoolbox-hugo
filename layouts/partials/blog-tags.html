@@ -34,7 +34,7 @@
         {{- $fontSizeStyle := printf "font-size: %.2f%s" $currentFontSize $fontUnit -}}
         {{- $fontWeightStyle := printf "font-weight: %.f" $roundedFontWeight -}}
         <li class="list-inline-item">
-          <a class="text-decoration-none" href="{{ "/tags/" | relLangURL }}{{ $key | urlize }}"
+          <a class="text-decoration-none" href="{{ "/tags/" | relLangURL }}{{ $key | urlize }}/"
             style="{{ $fontWeightStyle }}; {{ $fontSizeStyle }}">
             {{ $tag }}
           </a>
