@@ -10,7 +10,7 @@
     {{- end -}}
 
     {{- $js := resources.Get "scripts/googleAnalytics.js" | js.Build $buildOptions }}
-    <script async src="https://www.googletagmanager.com/gtag/js?id={{ $trackingCode }}"></script>
+    <script async src="https://www.googletagmanager.com/gtm.js?id={{ $trackingCode }}"></script>
     {{ if eq hugo.Environment "production" -}}
         {{- $js = $js | resources.Fingerprint "sha512" -}}
         <script
